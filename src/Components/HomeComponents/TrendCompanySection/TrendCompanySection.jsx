@@ -3,7 +3,7 @@ import { MdVerified } from "react-icons/md";
 import './TrendCompanySection.scss';
 
 // Nümunə şəkil (öz yolunuzu əlavə edin)
-import CampaignImg from '../../image/company-image.png';
+import CampaignImg from '../../../image/company-image.png';
 
 function TrendCompanySection() {
   const trendCampaigns = [

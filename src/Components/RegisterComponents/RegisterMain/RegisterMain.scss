@@ -1,0 +1,502 @@
+$primary-green: #006b52;
+$secondary-green: #008767;
+$text-dark: #333333;
+$text-light: #666666;
+$border-color: #e0e0e0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.register-wrapper {
+  min-height: 100vh;
+  background-color: $primary-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+
+  .register-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    gap: 60px;
+    justify-content: center;
+    .info-side {
+      flex: 1;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .logo-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        img {
+          width: 300px;
+          height: auto;
+        }
+        h1 {
+          font-size: 32px;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+
+      h2 {
+        font-size: 32px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+      }
+      .description {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .benefits-list {
+        list-style: none;
+        padding: 0;
+        li {
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          &::before {
+            content: "✓";
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .form-side {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      .auth-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 40px;
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+
+        h3 {
+          font-size: 28px;
+          margin-bottom: 10px;
+          color: $text-dark;
+        }
+        .subtitle {
+          color: $text-light;
+          margin-bottom: 30px;
+        }
+
+        form {
+          text-align: left;
+          font-family: "Poppins", sans-serif;
+
+          .form-group {
+            margin-bottom: 20px;
+            label {
+              display: block;
+              font-size: 14px;
+              margin-bottom: 8px;
+              font-weight: 500;
+            }
+
+            .input-field,
+            .phone-input-group {
+              display: flex;
+              align-items: center;
+              border: 1px solid $border-color;
+              border-radius: 12px;
+              padding: 0 15px;
+              height: 48px;
+              transition: 0.3s;
+
+              &:focus-within {
+                border-color: $primary-green;
+              }
+
+              input {
+                flex: 1;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                background: transparent;
+              }
+
+              .icon {
+                color: $text-light;
+                font-size: 14px;
+              }
+              .icon-left {
+                margin-right: 10px;
+                color: $text-light;
+              }
+              .icon-right {
+                margin-left: 10px;
+                color: $text-light;
+                cursor: pointer;
+              }
+            }
+
+            .phone-input-group {
+              .country-select {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border-right: 1px solid $border-color;
+                padding-right: 10px;
+                margin-right: 10px;
+                font-size: 14px;
+                img {
+                  width: 20px;
+                }
+              }
+            }
+
+            .hint {
+              font-size: 12px;
+              color: $text-light;
+              margin-top: 6px;
+              display: block;
+            }
+          }
+
+          .submit-btn {
+            width: 100%;
+            height: 50px;
+            background: $primary-green;
+            color: white;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            margin-top: 10px;
+            &:hover {
+              background: $secondary-green;
+            }
+          }
+
+          .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: $text-light;
+            font-size: 14px;
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              width: 40%;
+              height: 1px;
+              background: $border-color;
+            }
+            &::before {
+              left: 0;
+            }
+            &::after {
+              right: 0;
+            }
+          }
+
+          .google-btn {
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            border: 1px solid $border-color;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            .g-icon {
+              color: #db4437;
+            }
+          }
+
+          .footer-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: $text-light;
+            a {
+              color: $secondary-green;
+              text-decoration: none;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+  .error-text {
+    color: #ff4d4d;
+    font-size: 11px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .error-border {
+    border-color: #ff4d4d !important;
+  }
+
+  // Mövcud input-field üçün transition əlavə edin ki, rəng dəyişimi yumşaq olsun
+  .input-field,
+  .phone-input-group {
+    transition: border-color 0.2s ease;
+  }
+}
+
+// Kiçik ekranlar üçün
+// Mobil və Planşet adaptivliyi
+@media (max-width: 992px) {
+  .register-wrapper {
+    padding: 20px 15px; // Ekran kiçildikdə kənar boşluqları azaldırıq
+    align-items: flex-start; // Uzun formalarda skrolu asanlaşdırır
+
+    .register-container {
+      flex-direction: column;
+      gap: 30px; // Sol və sağ tərəf arasındakı məsafəni azaldırıq
+      text-align: center;
+
+      .info-side {
+        width: 100%;
+
+        .logo-box {
+          justify-content: center;
+          margin-bottom: 25px;
+          h1 {
+            font-size: 28px;
+          }
+          img {
+            width: 50px;
+          }
+        }
+
+        h2 {
+          font-size: 26px;
+          margin-bottom: 15px;
+        }
+        .description {
+          font-size: 16px;
+          margin-bottom: 25px;
+        }
+
+        .benefits-list {
+          display: inline-block; // Siyahını mərkəzləmək üçün
+          text-align: left;
+          li {
+            font-size: 14px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      .form-side {
+        width: 100%;
+        justify-content: center;
+
+        .auth-card {
+          padding: 30px 20px; // Kart daxili boşluqları azaldırıq
+          border-radius: 30px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
+          @media (max-width: 480px) {
+            border-radius: 10px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
+          }
+          max-width: 100%;
+          overflow: hidden;
+          h3 {
+            font-size: 24px;
+          }
+          .subtitle {
+            margin-bottom: 20px;
+          }
+
+          form {
+            .form-group {
+              margin-bottom: 15px;
+
+              label {
+                font-size: 13px;
+              }
+
+              .input-field,
+              .phone-input-group {
+                height: 44px; // İnput hündürlüyünü azaldırıq
+                font-size: 14px;
+              }
+            }
+
+            .submit-btn {
+              height: 46px;
+              font-size: 15px;
+            }
+
+            .google-btn {
+              height: 46px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Çox kiçik ekranlar üçün (Smartfonlar)
+@media (max-width: 480px) {
+  .register-wrapper {
+    .register-container {
+      .info-side {
+        h2 {
+          font-size: 22px;
+        }
+      }
+
+      .form-side {
+        .auth-card {
+          padding: 25px 15px;
+
+          .divider {
+            &::before,
+            &::after {
+              width: 35%;
+            } // "və ya" xətlərini qısaldırıq
+          }
+        }
+      }
+    }
+  }
+}
+// Mövcud media query-ləri əvəzləyən və ya tamamlayan mobil optimizasiya
+@media (max-width: 768px) {
+  .register-wrapper {
+    padding: 10px; // Kənar boşluqları minimuma endiririk
+    align-items: center;
+
+    .register-container {
+      gap: 20px;
+
+      .info-side {
+        padding: 0 10px;
+
+        .logo-box {
+          margin-bottom: 20px;
+          img {
+            width: 180px; // Mobildə loqonu kiçildirik
+          }
+        }
+
+        h2 {
+          font-size: 20px; // Başlıq ölçüsünü azaldırıq
+          font-weight: 600;
+        }
+
+        .description,
+        .benefits-list {
+          display: none; // Mobildə diqqəti yalnız forma yönəltmək üçün bunları gizlədirik
+        }
+      }
+
+      .form-side {
+        .auth-card {
+          box-shadow: none; // Mobildə kölgəni silib daha "flat" dizayn edirik
+          padding: 20px;
+          border-radius: 0; // Kənarları düzləşdiririk (ekranı tam tutması üçün)
+
+          h3 {
+            font-size: 22px;
+          }
+
+          .subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+
+          form {
+            .form-group {
+              margin-bottom: 12px;
+
+              .input-field,
+              .phone-input-group {
+                height: 52px; // Mobildə toxunuş üçün daha hündür inputlar
+                border-radius: 10px;
+                background-color: #f9f9f9; // İnputlara yüngül fon veririk
+              }
+
+              label {
+                font-size: 12px;
+                color: $text-dark;
+                font-weight: 600;
+              }
+            }
+
+            .submit-btn {
+              height: 54px;
+              font-size: 16px;
+              border-radius: 10px;
+              margin-top: 5px;
+            }
+
+            .google-btn {
+              height: 54px;
+              border-radius: 10px;
+            }
+
+            .divider {
+              margin: 15px 0;
+            }
+
+            .footer-text {
+              margin-top: 20px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Çox kiçik ekranlar (məsələn: iPhone SE)
+@media (max-width: 375px) {
+  .register-wrapper {
+    .register-container {
+      .info-side h2 {
+        font-size: 18px;
+      }
+
+      .form-side .auth-card {
+        padding: 15px 10px;
+
+        form .form-group .phone-input-group .country-select {
+          gap: 4px;
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

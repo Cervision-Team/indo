@@ -1,0 +1,204 @@
+$primary: #006b52;
+$secondary: #008767;
+$text-sec: #666;
+$card-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+.coming-soon-fixed {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4fbf9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px; // Mobil kənar boşluğu
+
+  .content-card {
+    background: #fff;
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    max-height: 95vh;
+    padding: clamp(20px, 5vh, 50px); // Hündürlüyə görə dinamik padding
+    border-radius: clamp(20px, 4vw, 40px);
+    box-shadow: $card-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+
+    .top-section {
+      margin-bottom: clamp(10px, 3vh, 25px);
+      .logo { 
+        width: clamp(80px, 15vw, 130px); 
+        height: auto;
+        margin-bottom: 10px; 
+      }
+      .tagline { 
+        font-size: clamp(11px, 2.5vw, 13px); 
+        color: $text-sec; 
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+
+    .main-title {
+      font-size: clamp(24px, 6vw, 42px);
+      color: $primary;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: clamp(10px, 2vh, 20px);
+    }
+
+    .info-text {
+      font-size: clamp(12px, 2.5vw, 14px);
+      color: $text-sec;
+      margin-bottom: clamp(20px, 4vh, 35px);
+      line-height: 1.6;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: clamp(8px, 2vw, 15px);
+      margin-bottom: clamp(20px, 4vh, 35px);
+
+      .timer-item {
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        flex: 1;
+        min-width: 60px;
+        max-width: 90px;
+        padding: clamp(8px, 2vh, 15px) 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        
+        .num { 
+          display: block; 
+          font-size: clamp(18px, 4vw, 26px); 
+          font-weight: 700; 
+          color: $primary; 
+        }
+        .unit { 
+          font-size: clamp(8px, 1.8vw, 10px); 
+          color: #aaa; 
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+
+    .progress-wrapper {
+      width: 100%;
+      height: 6px;
+      background: #eee;
+      border-radius: 10px;
+      margin-bottom: clamp(20px, 4vh, 35px);
+      overflow: hidden;
+      .bar { 
+        height: 100%; 
+        background: linear-gradient(90deg, $primary, $secondary); 
+        border-radius: 10px; 
+        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+
+    .mini-login {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto clamp(15px, 3vh, 25px);
+      
+      input {
+        height: clamp(42px, 5vh, 50px);
+        padding: 0 18px;
+        border: 1.5px solid #eee;
+        border-radius: 12px;
+        background: #fafafa;
+        outline: none;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        &:focus { 
+          border-color: $primary; 
+          background: #fff;
+          box-shadow: 0 0 0 4px rgba($primary, 0.05);
+        }
+      }
+
+      button {
+        height: clamp(44px, 5vh, 52px);
+        background: $primary;
+        color: #fff;
+        font-family: inherit;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover { 
+          background: $secondary;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($primary, 0.2);
+        }
+        &:active { transform: translateY(0); }
+      }
+    }
+
+    .copy { 
+      font-size: 11px; 
+      color: #bbb; 
+      margin-top: auto; 
+    }
+  }
+
+  // Fon Dekorasiyası - Mobildə kiçilir
+  .bg-shape {
+    position: absolute;
+    background: rgba($primary, 0.04);
+    border-radius: 25%;
+    z-index: 1;
+    &.s1 { 
+      width: 30vw; height: 30vw; 
+      top: -10vw; right: -10vw; 
+      transform: rotate(20deg); 
+    }
+    &.s2 { 
+      width: 20vw; height: 20vw; 
+      bottom: -5vw; left: -5vw; 
+      transform: rotate(-15deg); 
+    }
+  }
+}
+
+// Çox kiçik hündürlüklü ekranlar (məsələn: Landscape telefonlar)
+@media (max-height: 500px) {
+  .coming-soon-fixed {
+    padding: 10px;
+    .content-card {
+      padding: 15px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 800px;
+      gap: 15px;
+      
+      .top-section, .middle-section, .bottom-section {
+        flex: 1;
+        min-width: 250px;
+      }
+      .main-title { font-size: 24px; margin: 5px 0; }
+      .info-text, .timer-grid, .progress-wrapper { margin-bottom: 10px; }
+    }
+  }
+}
