@@ -18,17 +18,7 @@ $error-red: #ff4d4d;
   position: relative;
   overflow: hidden;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -150px;
-    left: -150px;
-    width: 450px;
-    height: 450px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    z-index: 0;
-  }
+
 
   .otp-container {
     display: flex;
@@ -104,7 +94,6 @@ $error-red: #ff4d4d;
         border-radius: 40px;
         width: 100%;
         max-width: 460px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         text-align: center;
 
         h3 {

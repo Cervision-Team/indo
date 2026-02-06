@@ -5,7 +5,7 @@ $text-light: #666666;
 $border-color: #e0e0e0;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.register-wrapper {
+.login-wrapper {
   min-height: 100vh;
   background-color: $primary-green;
   display: flex;
@@ -14,7 +14,7 @@ $border-color: #e0e0e0;
   padding: 40px 20px;
   font-family: "Poppins", sans-serif;
 
-  .register-container {
+  .login-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
@@ -163,8 +163,24 @@ $border-color: #e0e0e0;
                 padding-right: 10px;
                 margin-right: 10px;
                 font-size: 14px;
+                color: $text-light;
                 img {
                   width: 20px;
+                }
+              }
+            }
+
+            // Şifrəni unutmusunuz hissəsi bura əlavə edildi
+            .forgot-password-link {
+              text-align: right;
+              margin-top: 8px;
+              a {
+                color: $secondary-green;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 500;
+                &:hover {
+                  text-decoration: underline;
                 }
               }
             }
@@ -201,14 +217,14 @@ $border-color: #e0e0e0;
             color: $text-light;
             font-size: 14px;
             &::before,
-            &::after {
-              content: "";
-              position: absolute;
-              top: 50%;
-              width: 40%;
-              height: 1px;
-              background: $border-color;
-            }
+            // &::after {
+            //   content: "";
+            //   position: absolute;
+            //   top: 50%;
+            //   width: 40%;
+            //   height: 1px;
+            //   background: $border-color;
+            // }
             &::before {
               left: 0;
             }
@@ -261,240 +277,96 @@ $border-color: #e0e0e0;
     border-color: #ff4d4d !important;
   }
 
-  // Mövcud input-field üçün transition əlavə edin ki, rəng dəyişimi yumşaq olsun
   .input-field,
   .phone-input-group {
     transition: border-color 0.2s ease;
   }
 }
 
-// Kiçik ekranlar üçün
-// Mobil və Planşet adaptivliyi
+// Şəkildəki xüsusi dairəvi dizayn əlavələri
+.auth-card {
+  border-radius: 50px !important;
+  padding: 50px 40px !important;
+
+  .submit-btn,
+  .google-btn,
+  .phone-input-group,
+  .input-field {
+    border-radius: 25px !important;
+  }
+
+  .submit-btn {
+    background: #006b52 !important;
+    font-weight: 500 !important;
+  }
+}
+
+.login-wrapper {
+  position: relative;
+  overflow: hidden;
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: -150px;
+  //   left: -150px;
+  //   width: 450px;
+  //   height: 450px;
+  //   background: rgba(255, 255, 255, 0.05);
+  //   border-radius: 50%;
+  //   z-index: 0;
+  // }
+}
+
+// Mobil Adaptivlik hissələri olduğu kimi saxlanıldı
 @media (max-width: 992px) {
-  .register-wrapper {
-    padding: 20px 15px; // Ekran kiçildikdə kənar boşluqları azaldırıq
-    align-items: flex-start; // Uzun formalarda skrolu asanlaşdırır
-
-    .register-container {
+  .login-wrapper {
+    padding: 20px 15px;
+    align-items: flex-start;
+    .login-container {
       flex-direction: column;
-      gap: 30px; // Sol və sağ tərəf arasındakı məsafəni azaldırıq
+      gap: 30px;
       text-align: center;
-
       .info-side {
         width: 100%;
-
         .logo-box {
           justify-content: center;
           margin-bottom: 25px;
-          h1 {
-            font-size: 28px;
-          }
           img {
             width: 50px;
           }
         }
-
         h2 {
           font-size: 26px;
-          margin-bottom: 15px;
-        }
-        .description {
-          font-size: 16px;
-          margin-bottom: 25px;
-        }
-
-        .benefits-list {
-          display: inline-block; // Siyahını mərkəzləmək üçün
-          text-align: left;
-          li {
-            font-size: 14px;
-            margin-bottom: 15px;
-          }
         }
       }
-
       .form-side {
         width: 100%;
         justify-content: center;
-
         .auth-card {
-          padding: 30px 20px; // Kart daxili boşluqları azaldırıq
-          border-radius: 30px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
-          @media (max-width: 480px) {
-            border-radius: 10px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
-          }
-          max-width: 100%;
-          overflow: hidden;
-          h3 {
-            font-size: 24px;
-          }
-          .subtitle {
-            margin-bottom: 20px;
-          }
-
-          form {
-            .form-group {
-              margin-bottom: 15px;
-
-              label {
-                font-size: 13px;
-              }
-
-              .input-field,
-              .phone-input-group {
-                height: 44px; // İnput hündürlüyünü azaldırıq
-                font-size: 14px;
-              }
-            }
-
-            .submit-btn {
-              height: 46px;
-              font-size: 15px;
-            }
-
-            .google-btn {
-              height: 46px;
-              font-size: 14px;
-            }
-          }
+          border-radius: 30px !important;
         }
       }
     }
   }
 }
 
-// Çox kiçik ekranlar üçün (Smartfonlar)
-@media (max-width: 480px) {
-  .register-wrapper {
-    .register-container {
-      .info-side {
-        h2 {
-          font-size: 22px;
-        }
-      }
-
-      .form-side {
-        .auth-card {
-          padding: 25px 15px;
-
-          .divider {
-            &::before,
-            &::after {
-              width: 35%;
-            } // "və ya" xətlərini qısaldırıq
-          }
-        }
-      }
-    }
-  }
-}
-// Mövcud media query-ləri əvəzləyən və ya tamamlayan mobil optimizasiya
 @media (max-width: 768px) {
-  .register-wrapper {
-    padding: 10px; // Kənar boşluqları minimuma endiririk
+  .login-wrapper {
+    padding: 10px;
     align-items: center;
-
-    .register-container {
-      gap: 20px;
-
+    .login-container {
       .info-side {
-        padding: 0 10px;
-
-        .logo-box {
-          margin-bottom: 20px;
-          img {
-            width: 180px; // Mobildə loqonu kiçildirik
-          }
-        }
-
         h2 {
-          font-size: 20px; // Başlıq ölçüsünü azaldırıq
-          font-weight: 600;
+          font-size: 20px;
         }
-
         .description,
         .benefits-list {
-          display: none; // Mobildə diqqəti yalnız forma yönəltmək üçün bunları gizlədirik
+          display: none;
         }
       }
-
-      .form-side {
-        .auth-card {
-          box-shadow: none; // Mobildə kölgəni silib daha "flat" dizayn edirik
-          padding: 20px;
-          border-radius: 0; // Kənarları düzləşdiririk (ekranı tam tutması üçün)
-
-          h3 {
-            font-size: 22px;
-          }
-
-          .subtitle {
-            font-size: 14px;
-            margin-bottom: 20px;
-          }
-
-          form {
-            .form-group {
-              margin-bottom: 12px;
-
-              .input-field,
-              .phone-input-group {
-                height: 52px; // Mobildə toxunuş üçün daha hündür inputlar
-                border-radius: 10px;
-                background-color: #f9f9f9; // İnputlara yüngül fon veririk
-              }
-
-              label {
-                font-size: 12px;
-                color: $text-dark;
-                font-weight: 600;
-              }
-            }
-
-            .submit-btn {
-              height: 54px;
-              font-size: 16px;
-              border-radius: 10px;
-              margin-top: 5px;
-            }
-
-            .google-btn {
-              height: 54px;
-              border-radius: 10px;
-            }
-
-            .divider {
-              margin: 15px 0;
-            }
-
-            .footer-text {
-              margin-top: 20px;
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// Çox kiçik ekranlar (məsələn: iPhone SE)
-@media (max-width: 375px) {
-  .register-wrapper {
-    .register-container {
-      .info-side h2 {
-        font-size: 18px;
-      }
-
       .form-side .auth-card {
-        padding: 15px 10px;
-
-        form .form-group .phone-input-group .country-select {
-          gap: 4px;
-          span {
-            font-size: 12px;
-          }
-        }
+        box-shadow: none;
+        padding: 20px;
       }
     }
   }

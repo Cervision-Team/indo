@@ -65,12 +65,12 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="auth-link">
-                <NavLink to="/qeydiyyat" onClick={closeMenu}>
+                <NavLink to="/register" onClick={closeMenu}>
                   Qeydiyyatdan keç
                 </NavLink>
               </li>
               <li>
-                <Link to="/iane-et" className="donate-btn" onClick={closeMenu}>
+                <Link to="/doantion" className="donate-btn" onClick={closeMenu}>
                   İanə et
                 </Link>
               </li>
