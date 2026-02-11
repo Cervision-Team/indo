@@ -102,7 +102,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex !important;
         align-items: center;
         list-style: none;
-        gap: 35px;
+        gap: 32px;
         margin: 0;
         padding: 0;
 
@@ -111,11 +111,10 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: $text-dark;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 20px;
             position: relative;
             padding: 5px 0;
             transition: $transition;
-
             &.active {
               color: $primary-green;
             }
@@ -163,12 +162,13 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       background: $accent-orange;
       color: #fff !important;
       padding: 12px 30px;
-      border-radius: 50px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
+      font-weight: 400;
+      font-size: 20px;
       transition: $transition;
-
+      width: 193px;
+      text-align: center;
       &:hover {
         transform: translateY(-2px);
       }

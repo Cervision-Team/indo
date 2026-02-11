@@ -14,6 +14,9 @@ import {
 } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Logo from "../../../image/white-logo.png";
+import Icon from "../../../image/register-icon.png";
+import { MdLocalPhone } from "react-icons/md";
+import { IoMailOutline } from "react-icons/io5";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Ad və Soyad daxil edilməlidir"),
@@ -60,14 +63,23 @@ function RegisterMain() {
             Hər bir ianə bir ümiddir. Birlikdə daha çox insana kömək edə bilərik
           </p>
           <ul className="benefits-list">
-            <li>Etibarlı platformada təhlükəsiz ianə</li>
-            <li>Şəffaf və izlənilə bilən yardım</li>
-            <li>Hədəflərinizi seçin və dəstək olun</li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Etibarlı platformada təhlükəsiz ianə</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Şəffaf və izlənilə bilən yardım</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Hədəflərinizi seçin və dəstək olun</p>
+            </li>
           </ul>
         </div>
 
         <div className="form-side">
-          <div className="auth-card">
+          <div className="auth-cardd">
             <h3>Xoş gəlmisiniz</h3>
             <p className="subtitle">Qeydiyyatdan keçin</p>
 
@@ -83,7 +95,7 @@ function RegisterMain() {
                     placeholder="Güllü Əliyeva"
                     {...formik.getFieldProps("fullName")}
                   />
-                  <FaUser className="icon" />
+                  <MdLocalPhone className="icon" />
                 </div>
                 {formik.touched.fullName && formik.errors.fullName && (
                   <span className="error-text">{formik.errors.fullName}</span>
@@ -101,7 +113,7 @@ function RegisterMain() {
                     placeholder="E-poçtunuzu daxil edin"
                     {...formik.getFieldProps("email")}
                   />
-                  <FaEnvelope className="icon" />
+                  <IoMailOutline className="icon" />
                 </div>
                 {formik.touched.email && formik.errors.email && (
                   <span className="error-text">{formik.errors.email}</span>
@@ -114,7 +126,6 @@ function RegisterMain() {
                   className={`phone-input-group ${formik.touched.phone && formik.errors.phone ? "error-border" : ""}`}
                 >
                   <div className="country-select">
-                    <img src="https://flagcdn.com/w20/az.png" alt="AZ" />
                     <span>+994</span>
                     <FaChevronDown className="arrow" />
                   </div>
@@ -124,7 +135,7 @@ function RegisterMain() {
                     placeholder="557895456" // Boşluqsuz placeholder
                     {...formik.getFieldProps("phone")}
                   />
-                  <FaPhone className="icon" />
+                  <MdLocalPhone className="icon" />
                 </div>
                 {formik.touched.phone && formik.errors.phone && (
                   <span className="error-text">{formik.errors.phone}</span>

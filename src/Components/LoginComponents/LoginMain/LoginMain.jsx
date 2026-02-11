@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom"; // Yönləndirmə üçün əlavə edildi
+import { useNavigate } from "react-router-dom";
 import "./LoginMain.scss";
 import {
   FaPhone,
@@ -9,36 +9,40 @@ import {
   FaEyeSlash,
   FaEye,
   FaChevronDown,
+  
 } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Logo from "../../../image/white-logo.png";
+import Icon from "../../../image/register-icon.png"; // Register-dən istifadə edirik
+import { MdLocalPhone } from "react-icons/md";
 
 const validationSchema = Yup.object({
   phone: Yup.string()
-    // Həm boşluqlu, həm də boşluqsuz 9 rəqəmli formatı qəbul edir (məs: 557895456)
     .matches(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/, "Nümunə: 557895456")
     .required("Telefon nömrəsi mütləqdir"),
-  password: Yup.string().required("Şifrə tələb olunur"),
+  password: Yup.string()
+    .min(8, "Şifrə ən azı 8 simvol olmalıdır")
+    .matches(/[a-zA-Z]/, "Şifrədə hərflər olmalıdır")
+    .matches(/[0-9]/, "Şifrədə rəqəmlər olmalıdır")
+    .required("Şifrə tələb olunur"),
 });
 
 function LoginMain() {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // Hook-u çağırırıq
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: { phone: "", password: "" },
     validationSchema,
     onSubmit: (values) => {
       console.log("Giriş məlumatları:", values);
-      // Uğurlu giriş simulyasiyası və OTP-yə yönləndirmə
-      navigate("/otp"); 
+      navigate("/otp", { state: { from: "auth" } });
     },
   });
 
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        {/* Sol tərəf */}
         <div className="info-side">
           <div className="logo-box">
             <img src={Logo} alt="indo.az logo" />
@@ -48,15 +52,23 @@ function LoginMain() {
             Hər bir ianə bir ümiddir. Birlikdə daha çox insana kömək edə bilərik
           </p>
           <ul className="benefits-list">
-            <li>Etibarlı platformada təhlükəsiz ianə</li>
-            <li>Şəffaf və izlənilə bilən yardım</li>
-            <li>Hədəflərinizi seçin və dəstək olun</li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Etibarlı platformada təhlükəsiz ianə</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Şəffaf və izlənilə bilən yardım</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Hədəflərinizi seçin və dəstək olun</p>
+            </li>
           </ul>
         </div>
 
-        {/* Sağ tərəf: Giriş Kartı */}
         <div className="form-side">
-          <div className="auth-card">
+          <div className="auth-cardd">
             <h3>Xoş gəlmisiniz</h3>
             <p className="subtitle">Sistemə giriş edin</p>
 
@@ -67,17 +79,16 @@ function LoginMain() {
                   className={`phone-input-group ${formik.touched.phone && formik.errors.phone ? "error-border" : ""}`}
                 >
                   <div className="country-select">
-                    <img src="https://flagcdn.com/w20/az.png" alt="AZ" />
                     <span>+994</span>
                     <FaChevronDown className="arrow" />
                   </div>
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="557895456" // Placeholder yeniləndi
+                    placeholder="557895456"
                     {...formik.getFieldProps("phone")}
                   />
-                  <FaPhone className="icon" />
+                  <MdLocalPhone className="icon" />
                 </div>
                 {formik.touched.phone && formik.errors.phone && (
                   <span className="error-text">{formik.errors.phone}</span>
@@ -107,11 +118,13 @@ function LoginMain() {
                     )}
                   </div>
                 </div>
-                {formik.touched.password && formik.errors.password && (
+                {formik.touched.password && formik.errors.password ? (
                   <span className="error-text">{formik.errors.password}</span>
+                ) : (
+                 ""
                 )}
                 <div className="forgot-password-link">
-                  <a href="/forgot">Şifrənizi unutmusunuz?</a>
+                  <a href="/forgot-password">Şifrənizi unutmusunuz?</a>
                 </div>
               </div>
 
@@ -120,7 +133,7 @@ function LoginMain() {
                 className="submit-btn"
                 disabled={formik.isSubmitting}
               >
-                {formik.isSubmitting ? "Giriş edilir..." : "Daxil ol"}
+                {formik.isSubmitting ? "Gözləyin..." : "Daxil ol"}
               </button>
 
               <div className="divider">ve ya</div>

@@ -7,18 +7,20 @@ $border-color: #e0e0e0;
 
 .register-wrapper {
   min-height: 100vh;
-  background-color: $primary-green;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 54px 20px;
   font-family: "Poppins", sans-serif;
-
+  background-image: url("../../../image/register-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   .register-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
-    align-items: center;
+    align-items: start;
     gap: 60px;
     justify-content: center;
     .info-side {
@@ -46,15 +48,17 @@ $border-color: #e0e0e0;
       }
 
       h2 {
-        font-size: 32px;
+        font-size: 34px;
         line-height: 1.3;
         margin-bottom: 20px;
+        font-weight: 500;
       }
       .description {
-        font-size: 18px;
+        font-size: 24px;
         opacity: 0.9;
         margin-bottom: 40px;
         text-align: center;
+        font-weight: 300;
       }
 
       .benefits-list {
@@ -64,18 +68,12 @@ $border-color: #e0e0e0;
           margin-bottom: 20px;
           display: flex;
           align-items: center;
-          font-size: 16px;
-          &::before {
-            content: "✓";
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 24px;
-            height: 24px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            margin-right: 15px;
-            font-size: 12px;
+          font-size: 20px;
+          font-weight: 300;
+          gap: 8px;
+          img {
+            height: 32px;
+            width: 32px;
           }
         }
       }
@@ -84,37 +82,40 @@ $border-color: #e0e0e0;
     .form-side {
       flex: 1;
       display: flex;
-      justify-content: flex-end;
-
-      .auth-card {
+      .auth-cardd {
         background: #ffffff;
-        padding: 40px;
-        border-radius: 40px;
+        border-radius: 50px;
         width: 100%;
-        max-width: 480px;
+        max-width: 566px;
         text-align: center;
-
+        padding: 40px 20px 0px;
         h3 {
-          font-size: 28px;
-          margin-bottom: 10px;
-          color: $text-dark;
+          font-size: 34px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-bottom: 12px;
         }
         .subtitle {
-          color: $text-light;
-          margin-bottom: 30px;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 22px;
         }
 
         form {
           text-align: left;
           font-family: "Poppins", sans-serif;
-
+          padding: 40px;
           .form-group {
             margin-bottom: 20px;
+
             label {
               display: block;
-              font-size: 14px;
-              margin-bottom: 8px;
-              font-weight: 500;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 150%;
             }
 
             .input-field,
@@ -122,11 +123,11 @@ $border-color: #e0e0e0;
               display: flex;
               align-items: center;
               border: 1px solid $border-color;
-              border-radius: 12px;
+              border-radius: 20px;
               padding: 0 15px;
               height: 48px;
               transition: 0.3s;
-
+              margin-top: 6px;
               &:focus-within {
                 border-color: $primary-green;
               }
@@ -170,7 +171,10 @@ $border-color: #e0e0e0;
             }
 
             .hint {
-              font-size: 12px;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 150%;
               color: $text-light;
               margin-top: 6px;
               display: block;
@@ -185,10 +189,13 @@ $border-color: #e0e0e0;
             border: none;
             font-family: "Poppins", sans-serif;
             border-radius: 12px;
-            font-size: 16px;
             font-weight: 400;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 4px;
+            font-size: 16px;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.2px;
             &:hover {
               background: $secondary-green;
             }
@@ -196,7 +203,7 @@ $border-color: #e0e0e0;
 
           .divider {
             text-align: center;
-            margin: 20px 0;
+            margin: 10px 0;
             position: relative;
             color: $text-light;
             font-size: 14px;
@@ -230,6 +237,7 @@ $border-color: #e0e0e0;
             gap: 10px;
             cursor: pointer;
             font-weight: 500;
+            font-size: 16px;
             .g-icon {
               color: #db4437;
             }
@@ -238,7 +246,7 @@ $border-color: #e0e0e0;
           .footer-text {
             text-align: center;
             margin-top: 25px;
-            font-size: 14px;
+            font-size: 12px;
             color: $text-light;
             a {
               color: $secondary-green;
@@ -268,94 +276,139 @@ $border-color: #e0e0e0;
   }
 }
 
-// Kiçik ekranlar üçün
-// Mobil və Planşet adaptivliyi
+// MOBILE RESPONSIVE
 @media (max-width: 992px) {
   .register-wrapper {
-    padding: 20px 15px; // Ekran kiçildikdə kənar boşluqları azaldırıq
-    align-items: flex-start; // Uzun formalarda skrolu asanlaşdırır
+    padding: 40px 20px;
 
     .register-container {
-      flex-direction: column;
-      gap: 30px; // Sol və sağ tərəf arasındakı məsafəni azaldırıq
-      text-align: center;
+      flex-direction: column-reverse;
+      gap: 40px;
+      align-items: center;
 
       .info-side {
-        width: 100%;
+        text-align: center;
+        order: 2;
 
         .logo-box {
-          justify-content: center;
-          margin-bottom: 25px;
+          margin-bottom: 30px;
+          img {
+            width: 250px;
+          }
           h1 {
             font-size: 28px;
           }
+        }
+
+        h2 {
+          font-size: 28px;
+          margin-bottom: 16px;
+        }
+
+        .description {
+          font-size: 20px;
+          margin-bottom: 32px;
+        }
+
+        .benefits-list li {
+          font-size: 18px;
+          justify-content: center;
+        }
+      }
+
+      .form-side {
+        order: 1;
+        width: 100%;
+        max-width: 500px;
+
+        .auth-cardd {
+          max-width: 100%;
+          padding: 30px 20px 0;
+          border-radius: 30px;
+
+          h3 {
+            font-size: 28px;
+          }
+
+          form {
+            padding: 30px 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .register-wrapper {
+    padding: 30px 15px;
+    min-height: 100vh;
+
+    .register-container {
+      .info-side {
+        .logo-box {
+          flex-direction: column;
+          gap: 10px;
           img {
-            width: 50px;
+            width: 200px;
+          }
+          h1 {
+            font-size: 24px;
           }
         }
 
         h2 {
-          font-size: 26px;
-          margin-bottom: 15px;
-        }
-        .description {
-          font-size: 16px;
-          margin-bottom: 25px;
+          font-size: 24px;
         }
 
-        .benefits-list {
-          display: inline-block; // Siyahını mərkəzləmək üçün
-          text-align: left;
-          li {
-            font-size: 14px;
-            margin-bottom: 15px;
+        .description {
+          font-size: 18px;
+        }
+
+        .benefits-list li {
+          font-size: 16px;
+          gap: 6px;
+          img {
+            height: 24px;
+            width: 24px;
           }
         }
       }
 
       .form-side {
-        width: 100%;
-        justify-content: center;
+        .auth-cardd {
+          padding: 25px 15px 0;
+          border-radius: 24px;
 
-        .auth-card {
-          padding: 30px 20px; // Kart daxili boşluqları azaldırıq
-          border-radius: 30px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
-          @media (max-width: 480px) {
-            border-radius: 10px !important; // Küncləri bir az daha kəskinləşdiririk (kiçik ekrana uyğun)
-          }
-          max-width: 100%;
-          overflow: hidden;
           h3 {
             font-size: 24px;
           }
-          .subtitle {
-            margin-bottom: 20px;
-          }
 
           form {
-            .form-group {
-              margin-bottom: 15px;
+            padding: 25px 15px;
 
+            .form-group {
               label {
-                font-size: 13px;
+                font-size: 15px;
               }
 
               .input-field,
               .phone-input-group {
-                height: 44px; // İnput hündürlüyünü azaldırıq
-                font-size: 14px;
+                height: 44px;
+                padding: 0 12px;
+                border-radius: 16px;
+
+                input {
+                  font-size: 14px;
+                }
               }
             }
 
-            .submit-btn {
+            .submit-btn,
+            .google-btn {
               height: 46px;
               font-size: 15px;
             }
-
-            .google-btn {
-              height: 46px;
-              font-size: 14px;
-            }
           }
         }
       }
@@ -363,113 +416,86 @@ $border-color: #e0e0e0;
   }
 }
 
-// Çox kiçik ekranlar üçün (Smartfonlar)
 @media (max-width: 480px) {
   .register-wrapper {
-    .register-container {
-      .info-side {
-        h2 {
-          font-size: 22px;
-        }
-      }
-
-      .form-side {
-        .auth-card {
-          padding: 25px 15px;
-
-          .divider {
-            &::before,
-            &::after {
-              width: 35%;
-            } // "və ya" xətlərini qısaldırıq
-          }
-        }
-      }
-    }
-  }
-}
-// Mövcud media query-ləri əvəzləyən və ya tamamlayan mobil optimizasiya
-@media (max-width: 768px) {
-  .register-wrapper {
-    padding: 10px; // Kənar boşluqları minimuma endiririk
-    align-items: center;
+    padding: 20px 10px;
 
     .register-container {
-      gap: 20px;
-
       .info-side {
-        padding: 0 10px;
-
         .logo-box {
-          margin-bottom: 20px;
           img {
-            width: 180px; // Mobildə loqonu kiçildirik
+            width: 160px;
+          }
+          h1 {
+            font-size: 20px;
           }
         }
 
         h2 {
-          font-size: 20px; // Başlıq ölçüsünü azaldırıq
-          font-weight: 600;
+          font-size: 20px;
         }
 
-        .description,
-        .benefits-list {
-          display: none; // Mobildə diqqəti yalnız forma yönəltmək üçün bunları gizlədirik
+        .description {
+          font-size: 16px;
+          margin-bottom: 24px;
+        }
+
+        .benefits-list li {
+          font-size: 14px;
+          margin-bottom: 16px;
         }
       }
 
       .form-side {
-        .auth-card {
-          box-shadow: none; // Mobildə kölgəni silib daha "flat" dizayn edirik
-          padding: 20px;
-          border-radius: 0; // Kənarları düzləşdiririk (ekranı tam tutması üçün)
+        .auth-cardd {
+          padding: 20px 10px 0;
+          border-radius: 20px;
 
           h3 {
             font-size: 22px;
+            margin-bottom: 8px;
           }
 
           .subtitle {
             font-size: 14px;
-            margin-bottom: 20px;
           }
 
           form {
+            padding: 20px 10px;
+
             .form-group {
-              margin-bottom: 12px;
+              margin-bottom: 16px;
+
+              label {
+                font-size: 14px;
+              }
 
               .input-field,
               .phone-input-group {
-                height: 52px; // Mobildə toxunuş üçün daha hündür inputlar
-                border-radius: 10px;
-                background-color: #f9f9f9; // İnputlara yüngül fon veririk
+                height: 42px;
+                padding: 0 10px;
+                border-radius: 14px;
               }
 
-              label {
+              .hint {
                 font-size: 12px;
-                color: $text-dark;
-                font-weight: 600;
               }
             }
 
-            .submit-btn {
-              height: 54px;
-              font-size: 16px;
-              border-radius: 10px;
-              margin-top: 5px;
-            }
-
+            .submit-btn,
             .google-btn {
-              height: 54px;
+              height: 44px;
               border-radius: 10px;
+              font-size: 14px;
             }
 
             .divider {
-              margin: 15px 0;
+              font-size: 12px;
             }
 
             .footer-text {
+              font-size: 11px;
               margin-top: 20px;
-              font-size: 13px;
             }
           }
         }
@@ -478,21 +504,65 @@ $border-color: #e0e0e0;
   }
 }
 
-// Çox kiçik ekranlar (məsələn: iPhone SE)
-@media (max-width: 375px) {
+@media (max-width: 360px) {
   .register-wrapper {
+    padding: 15px 8px;
+
     .register-container {
-      .info-side h2 {
-        font-size: 18px;
+      .info-side {
+        .logo-box {
+          img {
+            width: 140px;
+          }
+          h1 {
+            font-size: 18px;
+          }
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        .description {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+
+        .benefits-list li {
+          font-size: 13px;
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
       }
 
-      .form-side .auth-card {
-        padding: 15px 10px;
+      .form-side {
+        .auth-cardd {
+          padding: 15px 8px 0;
+          border-radius: 16px;
 
-        form .form-group .phone-input-group .country-select {
-          gap: 4px;
-          span {
-            font-size: 12px;
+          h3 {
+            font-size: 20px;
+          }
+
+          form {
+            padding: 15px 8px;
+
+            .form-group {
+              .input-field,
+              .phone-input-group {
+                height: 40px;
+                padding: 0 8px;
+                border-radius: 12px;
+              }
+            }
+
+            .submit-btn,
+            .google-btn {
+              height: 42px;
+              font-size: 13px;
+            }
           }
         }
       }
