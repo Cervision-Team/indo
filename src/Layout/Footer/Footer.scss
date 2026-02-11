@@ -86,8 +86,8 @@ $text-gray: #777;
         position: absolute;
         right: 5px;
         top: 5px;
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background: $primary-green;
         color: white;
@@ -102,11 +102,123 @@ $text-gray: #777;
     }
   }
 
+  // MOBILE RESPONSIVE - Yeni eklenen kısım
+  @media (max-width: 992px) {
+    padding: 60px 0 30px;
+
+    .footer-top {
+      flex-direction: column;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    .footer-links-grid {
+      flex-direction: column;
+      gap: 30px;
+      order: 2;
+    }
+
+    .footer-subscribe {
+      flex: none;
+      width: 100%;
+      order: 1;
+
+      .subscribe-box {
+        padding: 25px 20px;
+      }
+    }
+
+    .footer-col {
+      h4 {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+
+      ul li {
+        margin-bottom: 12px;
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 50px 0 25px;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .footer-top {
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+
+    .footer-subscribe {
+      .subscribe-box {
+        padding: 20px 18px;
+        h3 {
+          font-size: 16px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+
+      .subscribe-input input {
+        padding: 13px 18px;
+        font-size: 13px;
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        right: 3px;
+        top: 3px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 0 20px;
+
+    .footer-col {
+      h4 {
+        font-size: 14px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+        a {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .footer-links-grid {
+      gap: 25px;
+    }
+  }
+
   .footer-bottom {
     padding: 40px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 25px;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+      padding: 25px 0;
+      gap: 20px;
+    }
 
     .bottom-left {
       display: flex;
@@ -117,6 +229,23 @@ $text-gray: #777;
         font-size: 14px;
         font-weight: 500;
       }
+
+      @media (max-width: 992px) {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+
+        a {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        gap: 12px;
+        a {
+          font-size: 12px;
+        }
+      }
     }
 
     .footer-logo {
@@ -124,13 +253,31 @@ $text-gray: #777;
       flex-direction: column;
       align-items: center;
       img {
-        height: 50px;
+        height: 80px;
         margin-bottom: 5px;
       }
       span {
         font-size: 20px;
         font-weight: 600;
         color: $primary-green;
+      }
+
+      @media (max-width: 768px) {
+        img {
+          height: 60px;
+        }
+        span {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        img {
+          height: 50px;
+        }
+        span {
+          font-size: 14px;
+        }
       }
     }
 
@@ -149,6 +296,24 @@ $text-gray: #777;
         text-decoration: none;
         font-size: 16px;
       }
+
+      @media (max-width: 768px) {
+        gap: 12px;
+        a {
+          width: 36px;
+          height: 36px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        gap: 10px;
+        a {
+          width: 32px;
+          height: 32px;
+          font-size: 13px;
+        }
+      }
     }
   }
 
@@ -157,24 +322,15 @@ $text-gray: #777;
     font-size: 14px;
     color: #000;
     font-weight: 500;
-  }
-}
 
-// Responsive
-@media (max-width: 992px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .footer-links-grid {
-    gap: 50px;
-  }
-  .footer-subscribe {
-    flex: 0 0 100%;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
+    @media (max-width: 992px) {
+      text-align: center;
+      font-size: 13px;
+      order: -1;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
   }
 }

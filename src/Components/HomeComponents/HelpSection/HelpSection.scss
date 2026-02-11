@@ -1,19 +1,18 @@
-$primary-green: #006D5B;
+$primary-green: #006d5b;
 $text-white: #ffffff;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .help-section {
   background-color: $primary-green;
-  padding: 80px 0;
+  padding: 40px 0;
   color: $text-white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
 
   .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
-
   }
 
   .help-header {
@@ -21,23 +20,25 @@ $text-white: #ffffff;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     h2 {
-      font-size: 36px;
-      font-weight: 400;
+      font-size: 40px;
+      font-weight: 500;
       margin-bottom: 20px;
       letter-spacing: 0.5px;
     }
 
     p {
-      font-size: 18px;
+      font-size: 24px;
       line-height: 1.5;
       opacity: 0.9;
       width: 80%;
       text-align: center;
+      font-weight: 400;
+
     }
   }
 
@@ -52,11 +53,10 @@ flex-direction: column;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     .icon-box {
       width: 80px;
       height: 80px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,17 +69,18 @@ flex-direction: column;
     }
 
     h3 {
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 24px;
       margin-bottom: 15px;
       text-transform: capitalize;
+      font-weight: 700;
     }
 
     p {
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       opacity: 0.85;
-      max-width: 320px;
+      max-width: 100%;
+      font-weight: 500;
     }
   }
 }
@@ -89,8 +90,13 @@ flex-direction: column;
     padding: 60px 0;
 
     .help-header {
-      h2 { font-size: 30px; }
-      p { width: 90%; font-size: 16px; }
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        width: 90%;
+        font-size: 16px;
+      }
     }
 
     .help-grid {
@@ -98,8 +104,12 @@ flex-direction: column;
     }
 
     .help-item {
-      h3 { font-size: 20px; }
-      p { max-width: 280px; }
+      h3 {
+        font-size: 20px;
+      }
+      p {
+        max-width: 280px;
+      }
     }
   }
 }
@@ -143,7 +153,7 @@ flex-direction: column;
         height: 65px;
         margin-bottom: 20px;
       }
-      
+
       h3 {
         font-size: 18px;
         margin-bottom: 10px;

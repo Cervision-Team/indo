@@ -15,6 +15,8 @@ import OtpPage from "./Pages/OtpPage";
 import EveryBody from "./Pages/EveryBody";
 import ForgotPage from "./Pages/ForgotPage";
 import ResetPage from "./Pages/ResetPage";
+import DonationPage from "./Pages/DonationPage";
+import NotMean from "./Components/NotMean/NotMean";
 
 const AppContent = () => {
   const location = useLocation();
@@ -44,6 +46,7 @@ const AppContent = () => {
   return (
     <>
       {!hideLayout && <Navbar />}
+      {!hideLayout && <NotMean />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -51,6 +54,7 @@ const AppContent = () => {
         <Route path="/otp" element={<OtpPage />} />
         <Route path="/forgot" element={<ForgotPage />} />
         <Route path="/reset" element={<ResetPage />} />
+        <Route path="/donation" element={<DonationPage />} />
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

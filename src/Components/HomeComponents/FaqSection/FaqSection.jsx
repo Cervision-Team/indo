@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
-import './FaqSection.scss';
+import "./FaqSection.scss";
 
 function FaqSection() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -8,20 +8,24 @@ function FaqSection() {
   const faqs = [
     {
       question: "Könüllü ola bilərəmmi?",
-      answer: "Bəli, könüllü ola bilərsiniz! Xüsusi təcrübə tələb olunmur — sadəcə yardım etmək istəyi kifayətdir. Könüllülərimiz tədbirlərdə, sosial layihələrdə və məlumatlandırma işlərində bizə dəstək olur."
+      answer:
+        "Bəli, könüllü ola bilərsiniz! Xüsusi təcrübə tələb olunmur — sadəcə yardım etmək istəyi kifayətdir. Könüllülərimiz tədbirlərdə, sosial layihələrdə və məlumatlandırma işlərində bizə dəstək olur.",
     },
     {
       question: "İanələr hara sərf olunur?",
-      answer: "Toplanan ianələr birbaşa ehtiyacı olan ailələrin ərzaq, dərman və təhsil xərclərinin qarşılanmasına yönəldilir."
+      answer:
+        "Toplanan ianələr birbaşa ehtiyacı olan ailələrin ərzaq, dərman və təhsil xərclərinin qarşılanmasına yönəldilir.",
     },
     {
       question: "Layihələrinizdə necə iştirak edə bilərəm?",
-      answer: "Saytımızda qeydiyyatdan keçərək və ya əlaqə bölməsindən bizə yazaraq layihələrimizə qoşula bilərsiniz."
+      answer:
+        "Saytımızda qeydiyyatdan keçərək və ya əlaqə bölməsindən bizə yazaraq layihələrimizə qoşula bilərsiniz.",
     },
     {
       question: "İanə etmək üçün hansı üsullar var?",
-      answer: "Onlayn kart ödənişi, bank köçürməsi və ya terminallar vasitəsilə ianə edə bilərsiniz."
-    }
+      answer:
+        "Onlayn kart ödənişi, bank köçürməsi və ya terminallar vasitəsilə ianə edə bilərsiniz.",
+    },
   ];
 
   const toggleAccordion = (index) => {
@@ -44,8 +48,8 @@ function FaqSection() {
           {/* Right Side: Accordion Grid */}
           <div className="faq-accordion">
             {faqs.map((faq, index) => (
-              <div 
-                className={`accordion-item ${activeIndex === index ? 'active' : ''}`} 
+              <div
+                className={`accordion-item ${activeIndex === index ? "active" : ""}`}
                 key={index}
                 onClick={() => toggleAccordion(index)}
               >

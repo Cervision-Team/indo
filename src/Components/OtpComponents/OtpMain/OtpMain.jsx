@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from "react-router-dom"; // useLocation əlavə edildi
 import './OtpMain.scss';
 import Logo from '../../../image/white-logo.png';
 
 function OtpMain() {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [timer, setTimer] = useState(59);
-  const [hasError, setHasError] = useState(false); // Error vəziyyəti
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Loading vəziyyəti
+
+  const navigate = useNavigate();
+  const location = useLocation(); // Haradan gəldiyini yoxlamaq üçün
+
+  // Gələn məlumatı götürürük (default olaraq "auth" qəbul edirik)
+  const fromPage = location.state?.from || "auth";
 
   useEffect(() => {
     if (timer > 0) {
@@ -16,7 +24,7 @@ function OtpMain() {
 
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
-    setHasError(false); // Yazmağa başlayanda erroru silirik
+    setHasError(false);
     
     let newOtp = [...otp];
     newOtp[index] = element.value;
@@ -35,10 +43,19 @@ function OtpMain() {
 
   const handleConfirm = () => {
     const code = otp.join("");
-    if (code !== "123456") { // Nümunə yoxlama
-      setHasError(true);
+    if (code.length === 6) {
+      if (fromPage === "forgot") {
+        // Şifrə unutma səhifəsindən gəlibsə birbaşa reset-ə
+        navigate("/reset");
+      } else {
+        // Login və ya Register-dən gəlibsə 3 saniyə loading və ana səhifəyə
+        setIsLoading(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      }
     } else {
-      alert("Təsdiqləndi!");
+      setHasError(true);
     }
   };
 
@@ -72,6 +89,7 @@ function OtpMain() {
                   type="text"
                   maxLength="1"
                   value={data}
+                  disabled={isLoading} // Loading zamanı inputları bağlayırıq
                   className={hasError ? "error-input" : ""}
                   onChange={(e) => handleChange(e.target, index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
@@ -85,7 +103,7 @@ function OtpMain() {
                 <span className="time"> 00:{timer < 10 ? `0${timer}` : timer}</span>
                 <button 
                   className="resend-btn" 
-                  disabled={timer > 0}
+                  disabled={timer > 0 || isLoading}
                   onClick={() => setTimer(59)}
                 >
                    yenidən göndər
@@ -96,9 +114,9 @@ function OtpMain() {
             <button 
               className="submit-btn" 
               onClick={handleConfirm}
-              disabled={otp.join("").length < 6}
+              disabled={otp.join("").length < 6 || isLoading}
             >
-              Davam et
+              {isLoading ? "Yüklənir..." : "Davam et"}
             </button>
           </div>
         </div>

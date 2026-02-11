@@ -1,0 +1,18 @@
+$primary-green: #006d5b;
+
+.navbar-spacer {
+  width: 100%;
+  background-color: transparent; // Fon rəngi lazım olsa burdan dəyişə bilərsiniz
+  
+  // Desktop ölçüsü: Top-bar (50px) + Navbar (85px) = ~135px
+  height: 135px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Əgər Navbar skrol olunubsa (kiçilibsə), bu hündürlüyü dinamik idarə etmək üçün 
+  // əsas layout-da dəyişiklik edilə bilər. Lakin standart olaraq:
+  
+  @media (max-width: 1024px) {
+    // Mobildə Top-bar gizləndiyi üçün yalnız Navbar hündürlüyü (məsələn: 80px)
+    height: 80px;
+  }
+}

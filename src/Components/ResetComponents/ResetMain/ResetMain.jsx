@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // useEffect əlavə edildi
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // navigate əlavə edildi
 import Logo from "../../../image/white-logo.png";
-import './ResetMain.scss'
+import './ResetMain.scss';
 
 const validationSchema = Yup.object({
   password: Yup.string()
@@ -18,20 +19,31 @@ function ResetMain() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const navigate = useNavigate(); // Hook-u çağırırıq
+
+  // Uğurlu olduqda 3 saniyəlik taymer
+  useEffect(() => {
+    if (isSuccess) {
+      const timeout = setTimeout(() => {
+        navigate("/"); // Ana səhifəyə yönləndirmə
+      }, 3000);
+
+      return () => clearTimeout(timeout); // Komponent silinəndə taymeri təmizləyirik
+    }
+  }, [isSuccess, navigate]);
 
   const formik = useFormik({
     initialValues: { password: "", confirmPassword: "" },
     validationSchema,
     onSubmit: (values) => {
       console.log("Şifrə sıfırlandı:", values);
-      setIsSuccess(true); // Uğurlu ekranı göstər
+      setIsSuccess(true);
     },
   });
 
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        {/* Sol tərəf */}
         <div className="info-side">
           <div className="logo-box">
             <img src={Logo} alt="indo.az logo" />
@@ -47,7 +59,6 @@ function ResetMain() {
           </ul>
         </div>
 
-        {/* Sağ tərəf */}
         <div className="form-side">
           <div className="auth-card">
             {!isSuccess ? (
@@ -100,7 +111,8 @@ function ResetMain() {
                 <img src="https://cdn-icons-png.flaticon.com/512/1644/1644011.png" alt="Uğurlu" className="success-img" />
                 <h3>Şifrəniz uğurla yeniləndi</h3>
                 <p className="subtitle">İndi yeni şifrə ilə hesabınıza daxil ola bilərsiniz.</p>
-                <button className="submit-btn" onClick={() => window.location.href = "/login"}>
+                <p style={{ fontSize: "12px", color: "gray" }}>3 saniyə sonra ana səhifəyə yönləndirilirsiniz...</p>
+                <button className="submit-btn" onClick={() => navigate("/login")}>
                   Daxil ol
                 </button>
               </div>

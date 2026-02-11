@@ -4,31 +4,31 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./HomeHeader.scss";
-// Şəkli import edirik
-import Image1 from "../../../image/header-image.png"; 
+import Image1 from "../../../image/header-image.png";
 
 function HomeHeader() {
   const slides = [
     {
       id: 1,
       topTitle: "Ürəklərə şəfa, həyatlara ümid",
-      mainTitle: "indo.az ailəsinin bir parçası olmaq paylaşmağın ən gözəl yoludur",
+      mainTitle:
+        "indo.az ailəsinin bir parçası olmaq paylaşmağın ən gözəl yoludur",
       desc: "İnkişafa doğru imkansız ailələrə sosial yardım və hüquqi maarifləndirmə ictimai birliyi",
-      image: Image1, // Düzgün yazılış: { Image1 } yox, sadəcə Image1
+      image: Image1,
     },
     {
-      id: 2, // ID fərqli olmalıdır
+      id: 2,
       topTitle: "Ürəklərə şəfa, həyatlara ümid",
       mainTitle: "Digər slayd başlığı bura",
       desc: "Digər təsvir mətni",
-      image: Image1, 
+      image: Image1,
     },
     {
-      id: 3, // ID fərqli olmalıdır
+      id: 3,
       topTitle: "Ürəklərə şəfa, həyatlara ümid",
       mainTitle: "Üçüncü slayd başlığı",
       desc: "Üçüncü təsvir mətni",
-      image: Image1, 
+      image: Image1,
     },
   ];
 

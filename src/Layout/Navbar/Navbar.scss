@@ -1,221 +1,604 @@
 $primary-green: #006d5b;
 $accent-orange: #e67e5f;
 $text-dark: #1a1a1a;
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:global(body) {
+  padding-top: 135px;
+  @media (max-width: 1024px) {
+    padding-top: 75px;
+  }
+}
 
 .header-container {
   width: 100%;
   font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  transition: $transition;
 
   .top-bar {
     background: #fff;
     padding: 12px 0;
     border-bottom: 1px solid #f0f0f0;
+    max-height: 100px;
+    overflow: hidden;
+    transition: $transition;
 
     .container {
       display: flex;
-      justify-content: space-between; // Sol və sağ tərəfə tam yayır
+      justify-content: space-between;
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
       color: $primary-green;
       font-size: 14px;
-    }
+      align-items: center;
 
-    .contact-links {
-      display: flex;
-      gap: 30px;
-      a {
-        color: inherit;
+      .contact-info a {
+        color: $primary-green;
         text-decoration: none;
         font-weight: 500;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 30px;
+        font-weight: 500;
+        a {
+          color: #00715d;
+          text-decoration: none;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
       }
     }
+  }
+
+  &.scrolled .top-bar {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+  }
+
+  &.scrolled .navbar {
+    padding: 10px 0;
   }
 
   .navbar {
     padding: 20px 0;
     background: #fff;
+    transition: $transition;
 
     .container {
       display: flex;
       align-items: center;
-      justify-content: space-between; // Logo sola, Menu sağa
+      justify-content: space-between;
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      img {
-        height: 55px;
-        object-fit: contain;
+    .logo img {
+      height: 50px;
+      object-fit: contain;
+    }
+
+    // DESKTOP MENU (1024px+)
+    .nav-elements {
+      flex: 1;
+      display: flex !important;
+      justify-content: center;
+      ul {
+        display: flex !important;
+        align-items: center;
+        list-style: none;
+        gap: 35px;
+        margin: 0;
+        padding: 0;
+
+        li {
+          a {
+            text-decoration: none;
+            color: $text-dark;
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            padding: 5px 0;
+            transition: $transition;
+
+            &.active {
+              color: $primary-green;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              width: 0;
+              height: 2px;
+              background: $primary-green;
+              transition: $transition;
+              transform: translateX(-50%);
+            }
+
+            &:hover {
+              color: $primary-green;
+              &::after {
+                width: 100%;
+              }
+            }
+
+            &.user-greeting {
+              color: $primary-green !important;
+              font-weight: 600;
+              &::after {
+              }
+              &:hover {
+                color: darken($primary-green, 10%);
+              }
+            }
+          }
+
+          // Desktop donate gizlətmək üçün donate-mobile gizlət
+          &.donate-mobile {
+            display: none;
+          }
+        }
       }
     }
 
-    .nav-elements {
-      // Bu hissə linkləri sağa tərəf mərkəzləyir/itələyir
-      display: flex;
-      justify-content: flex-end;
-      flex: 1;
+    // DESKTOP DONATE
+    .donate-btn-desktop {
+      background: $accent-orange;
+      color: #fff !important;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: $transition;
 
-      ul {
-        display: flex;
+      &:hover {
+        transform: translateY(-2px);
+      }
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    // MOBILE MENU TOGGLE (desktop-də gizli)
+    .menu-toggle {
+      display: none;
+      z-index: 10000;
+    }
+  }
+}
+
+// MOBILE - DESKTOP MENU GİZLƏT + MOBILE MENU AÇ
+@media (max-width: 1024px) {
+  :global(body) {
+    padding-top: 75px;
+  }
+
+  .header-container {
+    .top-bar {
+      display: none;
+    }
+
+    .navbar {
+      padding: 15px 0;
+      .container {
+        padding: 0 20px;
+      }
+      .logo img {
+        height: 42px;
+      }
+
+      // DESKTOP DONATE & MENU GİZLƏT
+      .donate-btn-desktop,
+      .nav-elements ul:not(.mobile-ul) {
+        display: none !important;
+      }
+
+      // MOBILE MENU TOGGLE GÖSTƏR
+      .menu-toggle {
+        display: flex !important;
         align-items: center;
-        list-style: none;
-        gap: 30px; // Linklər arası simmetrik məsafə
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba($primary-green, 0.08);
+        border: none;
+        cursor: pointer;
+        transition: $transition;
 
-        li a {
-          text-decoration: none;
-          color: $text-dark;
-          font-weight: 500;
-          font-size: 16px;
-          padding-bottom: 5px;
-          transition: 0.3s;
-          border-bottom: 2px solid transparent;
+        &:hover {
+          background: rgba($primary-green, 0.15);
+          transform: scale(1.08);
+        }
 
-          &.active {
-            color: $primary-green;
-            border-bottom: 2px solid $primary-green;
+        &:active {
+          transform: scale(0.98);
+        }
+
+        .menu-icon,
+        .close-icon {
+          color: $primary-green;
+          transition: $transition 0.2s;
+        }
+
+        .close-icon {
+          color: darken($primary-green, 15%);
+        }
+      }
+
+      // MOBILE MENU
+      .nav-elements {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 340px;
+        max-width: 92vw;
+        height: 100vh;
+        background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+        flex-direction: column;
+        padding: 95px 32px 50px;
+        transition: right 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1001;
+        backdrop-filter: blur(10px);
+
+        &.active {
+          right: 0;
+        }
+
+        ul {
+          flex-direction: column !important;
+          align-items: stretch;
+          gap: 2px;
+          overflow-y: auto;
+          padding-right: 8px;
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+
+          /* Webkit (Chrome, Safari) */
+          &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
           }
 
-          &.donate-btn {
-            background-color: $accent-orange;
-            color: #fff !important;
-            padding: 12px 35px;
-            border-radius: 50px;
-            border-bottom: none !important;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            margin-left: 10px;
-            &:hover {
-              opacity: 0.95;
-              transform: translateY(-1px);
+          /* Daha səliqəli gizlətmə */
+          -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+          scroll-behavior: smooth;
+
+          /* Custom thin scrollbar (backup) */
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 10px;
+          }
+          li {
+            width: 100%;
+            border-bottom: 1px solid rgba(240, 240, 240, 0.8);
+
+            a {
+              font-size: 18px;
+              font-weight: 500;
+              padding: 22px 20px 22px 18px;
+              display: block;
+              color: $text-dark;
+              transition: $transition;
+              border-radius: 16px;
+              margin: 0 -8px;
+
+              &:hover {
+                color: $primary-green;
+                background: rgba($primary-green, 0.1);
+                padding-left: 28px;
+                transform: translateX(6px);
+                box-shadow: inset 4px 0 0 $primary-green;
+              }
+
+              &.user-greeting {
+                color: $primary-green;
+                font-weight: 700;
+                font-size: 20px;
+                border-bottom: none;
+                padding: 20px 20px 24px 18px;
+                background: rgba($primary-green, 0.05);
+              }
             }
+
+            &.donate-mobile {
+              margin-top: 32px;
+              padding-top: 28px;
+              // border-top: 4px solid rgba($accent-orange, 0.3);
+              border-bottom: none;
+              order: 99;
+
+              .donate-btn {
+                display: block !important;
+                width: 100%;
+                background: linear-gradient(
+                  135deg,
+                  $accent-orange 0%,
+                  darken($accent-orange, 8%) 100%
+                );
+                color: #fff !important;
+                padding: 24px 32px;
+                border-radius: 20px;
+                font-size: 18px;
+                font-weight: 600;
+                text-align: center;
+                text-decoration: none;
+                box-shadow: 0 12px 40px rgba($accent-orange, 0.4);
+                transition: $transition;
+                position: relative;
+                overflow: hidden;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: -100%;
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.25),
+                    transparent
+                  );
+                  transition: left 0.7s;
+                }
+
+                &:hover {
+                  transform: translateY(-4px);
+                  &::before {
+                    left: 100%;
+                  }
+                }
+                &:active {
+                  transform: translateY(-2px);
+                }
+              }
+            }
+          }
+
+          li:last-child:not(.donate-mobile) {
+            border-bottom: none;
           }
         }
       }
     }
   }
 }
-// Təmiz və Stabil Mobil Menyu
-@media (max-width: 1024px) {
-  .top-bar {
-    display: none;
-  }
 
-  .navbar {
-    padding: 15px 0;
-    z-index: 1001;
+@media (max-width: 480px) {
+  .header-container .navbar {
     .container {
-      padding: 0 20px;
+      padding: 0 16px;
     }
-  }
-
-  .nav-elements {
-    position: fixed;
-    top: 0;
-    right: -100%; // Gizli
-    width: 300px; // Stabil en
-    height: 100vh;
-    background: #ffffff;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
-    transition: 0.4s ease-in-out;
-    z-index: 1000;
-    padding: 90px 30px;
-
-    &.active {
-      right: 0; // Açılış
+    .logo img {
+      height: 38px;
     }
 
-    ul {
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 15px !important;
-      width: 100%;
+    .nav-elements {
+      width: 100vw;
+      padding: 85px 24px 40px;
 
-      li {
-        width: 100%;
-        border-bottom: 1px solid #f5f5f5; // Linkləri ayıran incə xətt
-
-        &:last-child {
-          border-bottom: none;
-          display: flex;
-          margin: 0px 0px 0px -10px;
-        }
-      }
-
-      li a {
-        display: block;
-        padding: 12px 0;
+      ul li a {
         font-size: 17px;
-        font-weight: 500;
-        color: $text-dark;
-        text-decoration: none;
-        width: 100%;
+        padding: 20px 18px 20px 16px;
+      }
 
-        &.active {
-          color: $primary-green;
-          border-bottom: 2px solid $primary-green;
-          display: inline-block; // Alt xəttin bütün eni tutmaması üçün
-          width: auto;
-        }
-
-        &.donate-btn {
-          margin-top: 20px !important;
-          background-color: $accent-orange;
-          color: #fff !important;
-          text-align: center;
-          border-radius: 8px;
-          padding: 15px;
-          border-bottom: none !important;
-          font-weight: 400;
-        }
+      ul li.donate-mobile .donate-btn {
+        padding: 22px 28px;
+        font-size: 17px;
       }
     }
   }
+}
+// ... əvvəlki kod eyni qalır (desktop qismindən yuxarıya qədər) ...
 
-  // Hamburger İkonu
-  .menu-icon {
-    display: block;
-    z-index: 1002;
-    cursor: pointer;
+// MOBILE - TAM DÜZƏLDİLMİŞ
+@media (max-width: 1024px) {
+  :global(body) {
+    padding-top: 75px;
+  }
 
-    .hamburger {
-      width: 26px;
-      height: 2px;
-      background: $primary-green;
-      position: relative;
-      transition: 0.3s;
+  .header-container {
+    .top-bar {
+      display: none;
+    }
 
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        width: 26px;
-        height: 2px;
-        background: $primary-green;
-        transition: 0.3s;
-      }
-      &::before {
-        top: -8px;
-      }
-      &::after {
-        bottom: 8px;
+    .navbar {
+      padding: 15px 0;
+
+      .container {
+        padding: 0 20px;
       }
 
-      &.open {
-        background: transparent;
-        &::before {
-          transform: rotate(45deg) top 0;
-          top: 0;
+      .logo img {
+        height: 42px;
+      }
+
+      // DESKTOP ELEMENTLƏR GİZLƏT
+      .donate-btn-desktop {
+        display: none !important;
+      }
+
+      // MOBILE MENU TOGGLE
+      .menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba($primary-green, 0.12);
+        border: 2px solid rgba($primary-green, 0.25);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+
+        &:hover {
+          background: rgba($primary-green, 0.25);
+          transform: scale(1.05);
         }
-        &::after {
-          transform: rotate(-45deg) bottom 0;
-          bottom: 0;
+
+        .menu-icon,
+        .close-icon {
+          color: $primary-green !important;
+          stroke-width: 2.5;
+          transition: all 0.25s ease;
         }
+
+        .close-icon {
+          color: darken($primary-green, 20%) !important;
+        }
+      }
+
+      // MOBILE MENU - SAF VƏ KÖKƏN
+      .nav-elements.active {
+        position: fixed !important;
+        inset: 0 0 0 auto !important; // top:0 right:0 bottom:0 left:auto
+        width: 100% !important;
+        max-width: 360px !important;
+        height: 100vh !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        flex-direction: column !important;
+        padding: 80px 28px 60px !important;
+        z-index: 9999 !important;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.25) !important;
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        ul {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: stretch !important;
+          gap: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          overflow-y: auto !important;
+          flex: 1 !important;
+
+          li {
+            display: block !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+
+            a,
+            .donate-btn {
+              display: block !important;
+              width: 100% !important;
+              font-size: 18px !important;
+              font-weight: 500 !important;
+              padding: 24px 20px !important;
+              color: $text-dark !important;
+              text-decoration: none !important;
+              transition: all 0.3s ease !important;
+              border-radius: 16px !important;
+              margin: 2px 0 !important;
+              line-height: 1.4 !important;
+              white-space: nowrap !important;
+            }
+
+            a {
+              &:hover {
+                color: $primary-green !important;
+                background: rgba($primary-green, 0.1) !important;
+                transform: translateX(8px) !important;
+                box-shadow: 0 6px 20px rgba(0, 109, 91, 0.12) !important;
+              }
+
+              &.user-greeting {
+                color: $primary-green !important;
+                font-weight: 700 !important;
+                font-size: 20px !important;
+                background: rgba($primary-green, 0.08) !important;
+                border-bottom: none !important;
+              }
+            }
+
+            &.donate-mobile {
+              margin-top: 32px !important;
+              padding-top: 28px !important;
+              // border-top: 3px solid rgba($accent-orange, 0.25) !important;
+              border-bottom: none !important;
+              order: 999 !important;
+
+              .donate-btn {
+                background: linear-gradient(
+                  135deg,
+                  $accent-orange 0%,
+                  darken($accent-orange, 8%) 100%
+                ) !important;
+                color: #fff !important;
+                font-size: 18px !important;
+                font-weight: 700 !important;
+                padding: 26px 28px !important;
+                border-radius: 20px !important;
+                box-shadow: 0 12px 35px rgba($accent-orange, 0.4) !important;
+
+                &:hover {
+                  transform: translateY(-4px) scale(1.02) !important;
+                  box-shadow: 0 25px 50px rgba($accent-orange, 0.5) !important;
+                }
+              }
+            }
+          }
+
+          // Son li border sil
+          li:last-of-type:not(.donate-mobile) {
+            border-bottom: none !important;
+          }
+        }
+      }
+
+      // MOBILE MENU GİZLƏT (active deyilsə)
+      .nav-elements:not(.active) {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// SMALL MOBILE
+@media (max-width: 480px) {
+  .header-container .navbar {
+    .container {
+      padding: 0 16px !important;
+    }
+    .logo img {
+      height: 40px !important;
+    }
+
+    .nav-elements.active {
+      padding: 70px 24px 50px !important;
+
+      ul li a,
+      ul li .donate-btn {
+        font-size: 17px !important;
+        padding: 22px 20px !important;
       }
     }
   }

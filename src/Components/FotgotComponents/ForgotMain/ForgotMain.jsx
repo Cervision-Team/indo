@@ -2,29 +2,35 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaPhone, FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Yönləndirmə üçün əlavə edildi
 import Logo from "../../../image/white-logo.png";
-import './ForgotMain.scss'
+import './ForgotMain.scss';
 
 const validationSchema = Yup.object({
   phone: Yup.string()
-    .matches(/^\d{2} \d{3} \d{2} \d{2}$/, "Nümunə: 55 789 54 56")
+    // Həm boşluqlu, həm də boşluqsuz 9 rəqəmli nömrəni qəbul edir
+    .matches(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/, "Nümunə: 557895456")
     .required("Telefon nömrəsi mütləqdir"),
 });
 
 function ForgotMain() {
+  const navigate = useNavigate(); // Hook-u çağırırıq
+
   const formik = useFormik({
     initialValues: { phone: "" },
     validationSchema,
     onSubmit: (values) => {
       console.log("OTP göndəriləcək nömrə:", values.phone);
-      // Bura OTP göndərmə API-ı əlavə olunacaq
+      
+      // Simulyasiya: Form göndərilir və uğurlu olduqda yönləndirilir
+      // Reallıqda bura API call əlavə edəcəksiniz
+      navigate("/otp"); 
     },
   });
 
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        {/* Sol tərəf (Login ilə eyni) */}
         <div className="info-side">
           <div className="logo-box">
             <img src={Logo} alt="indo.az logo" />
@@ -40,7 +46,6 @@ function ForgotMain() {
           </ul>
         </div>
 
-        {/* Sağ tərəf: Şifrə bərpa kartı */}
         <div className="form-side">
           <div className="auth-card">
             <h3>Şifrənizi unutmusunuz?</h3>
@@ -64,7 +69,7 @@ function ForgotMain() {
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="55 789 54 56"
+                    placeholder="557895456"
                     {...formik.getFieldProps("phone")}
                   />
                   <FaPhone className="icon" />

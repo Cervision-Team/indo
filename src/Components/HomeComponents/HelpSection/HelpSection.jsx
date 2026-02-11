@@ -1,26 +1,24 @@
 import React from 'react';
 import './HelpSection.scss';
-
-// İkonları import edin (yollar layihənizə uyğun olmalıdır)
-// import HelpIcon from '../../image/help-icon.svg'; 
+import Icon from '../../../image/help-image.png'
 
 function HelpSection() {
   const steps = [
     {
       id: 1,
-      icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      icon: Icon,
       title: "Qeydiyyatdan keç",
       desc: "Qeydiyyatdan keç və yaxşılıq paylaşmağı sevən insanların bir hissəsi ol."
     },
     {
       id: 2,
-      icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      icon: Icon,
       title: "ianə seç",
       desc: "Paylaşa biləcəyin bir çox şey var – yaxşılıqla dolu."
     },
     {
       id: 3,
-      icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      icon: Icon,
       title: "Xoşbəxtliyi paylaş",
       desc: "Daha az imkanlılarla xoşbəxtlik paylaşmaq və başqaları üçün daha çox yaxşılıq etmək."
     }

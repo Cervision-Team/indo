@@ -14,7 +14,7 @@ $primary-green: #006D5B;
   }
 
   .partner-title {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 500;
     color: #000;
     margin-bottom: 24px;
@@ -23,52 +23,100 @@ $primary-green: #006D5B;
   .marquee-container {
     background-color: $primary-green;
     padding: 25px 0;
-    overflow: hidden; // Kənara çıxan loqoları gizlədir
+    overflow: hidden;
     display: flex;
+
     .marquee-track {
       display: flex;
       align-items: center;
-      gap: 80px; // Loqolar arası məsafə
+      gap: 80px;
       width: max-content;
-      animation: scroll 30s linear infinite; // 30 saniyəlik sonsuz dövr
-    //   background: red;
+      animation: scroll 30s linear infinite;
       justify-content: center;
+
+      // Tablet için optimize
+      @media (max-width: 992px) {
+        gap: 60px;
+      }
+
+      // Mobil için optimize
+      @media (max-width: 768px) {
+        gap: 40px;
+      }
     }
 
     .marquee-item {
-        display: flex;
+      display: flex;
+
       img {
-        height: 35px; // Loqoların hündürlüyü
+        height: 35px;
         width: auto;
         object-fit: cover;
+
+        // Tablet için logo boyutu
+        @media (max-width: 992px) {
+          height: 30px;
+        }
+
+        // Mobil için logo boyutu
+        @media (max-width: 768px) {
+          height: 25px;
+        }
+
+        @media (max-width: 480px) {
+          height: 22px;
+        }
       }
     }
   }
-}
 
-// Sonsuz hərəkət animasiyası
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); // Yarısına çatanda təkrar başa qayıdır
-  }
-}
-
-// Responsive
-@media (max-width: 768px) {
-  .partner-title {
-    font-size: 18px;
-    padding: 0 15px;
+  // ANIMASYON DURDURMA - MİNİMİZASYON
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
-  .marquee-track {
-    gap: 40px;
-    animation: scroll 20s linear infinite; // Mobildə bir az sürətli
+  // MOBİL OPTİMİZASYON
+  @media (max-width: 992px) {
+    padding: 20px 0 0;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .partner-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
   }
 
-  .marquee-item img {
-    height: 25px;
+  @media (max-width: 768px) {
+    padding: 16px 0 0;
+
+    .partner-title {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 0 0;
+
+    .partner-title {
+      font-size: 23px;
+      margin-bottom: 14px;
+    }
+
+    .marquee-container {
+      padding: 20px 0;
+
+      .marquee-track {
+        gap: 30px;
+      }
+    }
   }
 }

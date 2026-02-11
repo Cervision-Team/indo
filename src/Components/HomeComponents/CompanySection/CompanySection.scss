@@ -25,14 +25,16 @@ $bg-light: #e9f1f0;
 
     h2 {
       font-size: 40px;
-      font-weight: 600;
+      font-weight: 500;
       color: #000;
       margin-bottom: 20px;
+      line-height: 60px;
     }
 
     p {
-      font-size: 20px;
+      font-size: 28px;
       line-height: 1.5;
+      font-weight: 400;
       color: #333;
       margin-bottom: 40px;
     }
@@ -86,18 +88,19 @@ $bg-light: #e9f1f0;
         display: flex;
         align-items: center;
         gap: 5px;
-        font-size: 13px;
+        font-size: 14px;
         color: #777;
-        margin-bottom: 10px;
-
+        margin-bottom: 4px;
+        font-weight: 500;
+        line-height: 22px;
         .verified-icon {
           color: #3498db;
         }
       }
 
       h3 {
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 20px;
+        font-weight: 500;
         color: #333;
         margin-bottom: 20px;
         height: 44px; // Başlıqların eyni səviyyədə olması üçün
@@ -132,10 +135,10 @@ $bg-light: #e9f1f0;
         background: $primary-green;
         color: #fff;
         border: none;
-        padding: 12px;
+        padding: 10px;
         font-family: "Poppins", sans-serif;
         border-radius: 10px;
-        font-weight: 500;
+        font-weight: 400;
         cursor: pointer;
         transition: 0.3s;
 
@@ -189,7 +192,7 @@ $bg-light: #e9f1f0;
       .custom-nav-btns {
         justify-content: center;
         margin-bottom: 10px;
-        
+
         button {
           width: 45px;
           height: 45px;
@@ -199,7 +202,7 @@ $bg-light: #e9f1f0;
 
     .slider-side {
       width: 100%;
-    //   padding: 0 10px;
+      //   padding: 0 10px;
     }
   }
 }
@@ -233,7 +236,7 @@ $bg-light: #e9f1f0;
         }
       }
     }
-    
+
     // Swiper daxilində kartlar arası məsafəni tənzimləmək üçün
     .mySwiper {
       padding-bottom: 30px; // Pagination üçün yer

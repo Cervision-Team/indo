@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom"; // Yönləndirmə üçün əlavə edildi
 import "./LoginMain.scss";
 import {
   FaPhone,
@@ -14,19 +15,23 @@ import Logo from "../../../image/white-logo.png";
 
 const validationSchema = Yup.object({
   phone: Yup.string()
-    .matches(/^\d{2} \d{3} \d{2} \d{2}$/, "Nümunə: 55 789 54 56")
+    // Həm boşluqlu, həm də boşluqsuz 9 rəqəmli formatı qəbul edir (məs: 557895456)
+    .matches(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/, "Nümunə: 557895456")
     .required("Telefon nömrəsi mütləqdir"),
   password: Yup.string().required("Şifrə tələb olunur"),
 });
 
 function LoginMain() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Hook-u çağırırıq
 
   const formik = useFormik({
     initialValues: { phone: "", password: "" },
     validationSchema,
     onSubmit: (values) => {
       console.log("Giriş məlumatları:", values);
+      // Uğurlu giriş simulyasiyası və OTP-yə yönləndirmə
+      navigate("/otp"); 
     },
   });
 
@@ -69,7 +74,7 @@ function LoginMain() {
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="55 789 54 56"
+                    placeholder="557895456" // Placeholder yeniləndi
                     {...formik.getFieldProps("phone")}
                   />
                   <FaPhone className="icon" />
@@ -104,7 +109,7 @@ function LoginMain() {
                 </div>
                 {formik.touched.password && formik.errors.password && (
                   <span className="error-text">{formik.errors.password}</span>
-                )}{" "}
+                )}
                 <div className="forgot-password-link">
                   <a href="/forgot">Şifrənizi unutmusunuz?</a>
                 </div>
