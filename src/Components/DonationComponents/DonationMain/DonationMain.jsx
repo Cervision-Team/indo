@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FaRegAddressCard, FaHeart, FaShieldAlt } from "react-icons/fa";
 import "./DonationMain.scss";
+import icon1 from "../../../image/icon1.png";
+import icon2 from "../../../image/icon2.png";
+import donationImage from "../../../image/donation-image.png";
 
 function DonationMain() {
   const [isMonthly, setIsMonthly] = useState(false);
@@ -33,18 +36,14 @@ function DonationMain() {
 
           <div className="info-cards">
             <div className="info-card">
-              <div className="icon-box heart">
-                <FaHeart />
-              </div>
+              <img src={icon1} alt="" />
               <h3>100 % Şəffafılq</h3>
               <p>
                 Hər bir ianənin hara xərcləndiyini hesabatlarda görə bilərsiniz.
               </p>
             </div>
             <div className="info-card">
-              <div className="icon-box shield">
-                <FaShieldAlt />
-              </div>
+              <img src={icon2} alt="" />
               <h3>Xeyriyyə</h3>
               <p>Məlumatlarınız 256-bit SSL şifrələmə ilə qorunur.</p>
             </div>
@@ -52,7 +51,7 @@ function DonationMain() {
 
           <div className="main-image">
             <img
-              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000"
+              src={donationImage}
               alt="Donation"
             />
           </div>

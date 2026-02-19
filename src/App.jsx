@@ -17,6 +17,8 @@ import ForgotPage from "./Pages/ForgotPage";
 import ResetPage from "./Pages/ResetPage";
 import DonationPage from "./Pages/DonationPage";
 import NotMean from "./Components/NotMean/NotMean";
+import SuccessDonation from "./Components/DonationComponents/SuccessDonation/SuccessDonation";
+import ErrorDonation from "./Components/DonationComponents/ErrorDonation/ErrorDonation";
 
 const AppContent = () => {
   const location = useLocation();
@@ -40,6 +42,8 @@ const AppContent = () => {
     "/everybody",
     "/forgot",
     "/reset",
+    "/donation-success",
+    "/donation-error",
   ];
   const hideLayout = noLayoutPages.includes(location.pathname);
 
@@ -55,6 +59,8 @@ const AppContent = () => {
         <Route path="/forgot" element={<ForgotPage />} />
         <Route path="/reset" element={<ResetPage />} />
         <Route path="/donation" element={<DonationPage />} />
+        <Route path="/donation-success" element={<SuccessDonation />} />
+        <Route path="/donation-error" element={<ErrorDonation />} />
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

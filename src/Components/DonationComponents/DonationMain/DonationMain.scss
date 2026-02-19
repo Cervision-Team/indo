@@ -13,7 +13,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: "Poppins", sans-serif;
 
   .donation-container {
-    max-width: 1200px;
+    max-width: 1360px;
     margin: 0 auto;
     display: flex;
     gap: 60px;
@@ -24,7 +24,6 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   // Sol Tərəf: Məlumat Hissəsi
   .donation-info {
     flex: 1;
-
     h1 {
       color: $primary-green;
       font-size: 36px;
@@ -50,12 +49,14 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border-radius: 15px;
         border: 1px solid transparent;
         transition: $transition;
+        border-color: rgba($primary-green, 0.1);
         cursor: pointer;
-
+        img {
+          max-width: 100px;
+        }
         // INFO CARD HOVER
         &:hover {
-          transform: translateY(-10px);
-          border-color: rgba($primary-green, 0.1);
+          transform: translateY(-4px);
 
           .icon-box {
             transform: scale(1.1) rotate(5deg);
@@ -84,14 +85,23 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
         h3 {
           font-size: 18px;
-          margin-bottom: 10px;
+          margin-top: 40px;
+          margin-bottom: 8px;
           color: $text-dark;
           font-weight: 600;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
         }
         p {
           font-size: 13px;
           color: #777;
           line-height: 1.5;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
         }
       }
     }
@@ -106,12 +116,11 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   // Sağ Tərəf: İanə Kartı
   .donation-form-card {
-    width: 450px;
+    width: 620px;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 20px;
     padding: 30px;
-
     .form-header {
       display: flex;
       align-items: center;
@@ -119,6 +128,9 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       color: $primary-green;
       font-weight: 600;
       margin-bottom: 25px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
       svg {
         font-size: 20px;
       }
@@ -271,7 +283,6 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .contribution-box {
-      background: #fffbeb;
       border: 1px solid #fef3c7;
       padding: 15px;
       border-radius: 12px;
@@ -305,17 +316,17 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       color: #fff;
       border: none;
       padding: 16px;
-      border-radius: 15px;
+      border-radius: 30px;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 400;
       cursor: pointer;
       transition: $transition;
       margin-top: 10px;
+      font-family: "Poppins", sans-serif;
 
       &:hover {
         background: darken($accent-orange, 5%);
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba($accent-orange, 0.3);
       }
       &:active {
         transform: translateY(0);
@@ -327,6 +338,12 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       text-align: center;
       color: #999;
       margin-top: 15px;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px; /* 128.571% */
+      letter-spacing: 0.2px;
     }
   }
 }
@@ -342,70 +359,147 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
   }
 }
+// --- RESPONSIVE DIZAYN (MEDIA QUERIES) ---
 
-// RESPONSIVE TƏNZİMLƏMƏLƏR
+// 1. Tablet və Kiçik Desktoplar (max-width: 1024px)
 @media (max-width: 1024px) {
   .donation-wrapper {
-    padding: 40px 0;
+    padding: 30px 0;
+
     .donation-container {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column; // Yan-yana düzülüşü alt-alta edir
       gap: 40px;
+      padding: 0 30px;
     }
+
+    // Sol tərəf (Məlumat)
     .donation-info {
-      text-align: center;
       width: 100%;
-      .info-cards {
-        justify-content: center;
-      }
+      text-align: center; // Mətni mərkəzləşdirir
+
       h1 {
-        font-size: 30px;
+        font-size: 32px;
+      }
+
+      .info-cards {
+        justify-content: center; // Kartları mərkəzləşdirir
+      }
+
+      .main-image img {
+        height: 300px; // Şəkli biraz kiçildir
       }
     }
+
+    // Sağ tərəf (Form)
     .donation-form-card {
-      width: 100%;
-      max-width: 550px;
+      width: 100%; // Genişliyi tam edir
+      max-width: 600px; // Çox geniş olmasın deyə limit
+      margin: 0 auto; // Mərkəzləşdirir
     }
   }
 }
 
+// 2. Mobil Cihazlar (max-width: 768px)
 @media (max-width: 768px) {
   .donation-wrapper {
+    .donation-container {
+      padding: 0 20px;
+      gap: 30px;
+    }
+
     .donation-info {
+      h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
       .info-cards {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; // Kartları alt-alta düzür
+        gap: 15px;
+
         .info-card {
-          width: 100%;
-          max-width: 400px;
+          display: flex; // İkon və mətni yan-yana qoymaq üçün (opsional)
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+          
+          img {
+            margin-bottom: 15px;
+          }
+          
+          h3 {
+            margin-top: 10px;
+            font-size: 20px;
+          }
         }
       }
+
       .main-image img {
         height: 250px;
       }
     }
+
     .donation-form-card {
-      padding: 20px;
+      padding: 20px; // Daxili boşluğu azaldır
+      
+      .form-header {
+        font-size: 20px;
+        justify-content: center;
+      }
+
+      // Kateqoriyalar
+      .category-section {
+        .category-item {
+          padding: 12px;
+          
+          .text strong {
+            font-size: 13px;
+          }
+          .text span {
+            font-size: 11px;
+          }
+        }
+      }
+
+      // Məbləğ butonları
       .amounts-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr); // 3 sütun saxlayırıq
+        gap: 8px;
+
+        button {
+          padding: 10px 5px;
+          font-size: 14px;
+        }
       }
     }
   }
 }
 
+// 3. Kiçik Mobil (max-width: 480px)
 @media (max-width: 480px) {
   .donation-wrapper {
-    .donation-info h1 {
-      font-size: 24px;
-    }
-    .donation-form-card {
-      .submit-donation {
-        font-size: 15px;
-        padding: 14px;
+    .donation-info {
+      h1 {
+        font-size: 24px;
       }
-      .contribution-box {
-        flex-direction: column;
-        text-align: center;
+    }
+
+    .donation-form-card {
+      padding: 15px;
+      border-radius: 15px;
+
+      .amounts-grid {
+        grid-template-columns: repeat(2, 1fr); // Çox kiçik ekranda 2 sütun
+      }
+
+      .submit-donation {
+        padding: 14px;
+        font-size: 15px;
+      }
+      
+      .toggle-container button {
+        font-size: 14px;
       }
     }
   }
