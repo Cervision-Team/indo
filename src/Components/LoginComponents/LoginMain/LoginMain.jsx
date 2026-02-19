@@ -124,7 +124,7 @@ function LoginMain() {
                  ""
                 )}
                 <div className="forgot-password-link">
-                  <a href="/forgot-password">Şifrənizi unutmusunuz?</a>
+                  <a href="/forgot">Şifrənizi unutmusunuz?</a>
                 </div>
               </div>
 

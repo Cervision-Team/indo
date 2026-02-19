@@ -3,24 +3,30 @@ $secondary-green: #008767;
 $text-dark: #333333;
 $text-light: #666666;
 $border-color: #e0e0e0;
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .login-wrapper {
   min-height: 100vh;
-  background-color: $primary-green;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 54px 20px;
   font-family: "Poppins", sans-serif;
+  // LoginMain-də olduğu kimi eyni fon şəkli
+  background-image: url("../../../image/register-background.png"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .login-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
-    align-items: center;
+    align-items: start; // LoginMain standartı
     gap: 60px;
     justify-content: center;
+
     .info-side {
       flex: 1;
       color: #ffffff;
@@ -28,6 +34,7 @@ $border-color: #e0e0e0;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
       .logo-box {
         display: flex;
         align-items: center;
@@ -38,23 +45,21 @@ $border-color: #e0e0e0;
           width: 300px;
           height: auto;
         }
-        h1 {
-          font-size: 32px;
-          font-weight: 700;
-          margin: 0;
-        }
       }
 
       h2 {
-        font-size: 32px;
+        font-size: 34px;
         line-height: 1.3;
         margin-bottom: 20px;
+        font-weight: 500;
+        text-align: center;
       }
       .description {
-        font-size: 18px;
+        font-size: 24px;
         opacity: 0.9;
         margin-bottom: 40px;
         text-align: center;
+        font-weight: 300;
       }
 
       .benefits-list {
@@ -64,19 +69,13 @@ $border-color: #e0e0e0;
           margin-bottom: 20px;
           display: flex;
           align-items: center;
-          font-size: 16px;
-          // &::before {
-          //   content: "✓";
-          //   display: inline-flex;
-          //   justify-content: center;
-          //   align-items: center;
-          //   width: 24px;
-          //   height: 24px;
-          //   background: rgba(255, 255, 255, 0.2);
-          //   border-radius: 50%;
-          //   margin-right: 15px;
-          //   font-size: 12px;
-          // }
+          font-size: 20px;
+          font-weight: 300;
+          gap: 8px;
+          img {
+            height: 32px;
+            width: 32px;
+          }
         }
       }
     }
@@ -84,51 +83,70 @@ $border-color: #e0e0e0;
     .form-side {
       flex: 1;
       display: flex;
-      justify-content: flex-end;
 
-      .auth-card {
+      .auth-cardd {
         background: #ffffff;
-        padding: 40px;
-        border-radius: 40px;
+        border-radius: 50px; // Sistem standartı
         width: 100%;
-        max-width: 480px;
+        max-width: 566px; // Sistem standartı
         text-align: center;
+        padding: 40px 20px 0px;
 
         h3 {
-          font-size: 28px;
-          margin-bottom: 10px;
-          color: $text-dark;
+          font-size: 34px;
+          font-weight: 500;
+          margin-bottom: 12px;
         }
         .subtitle {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
           color: $text-light;
-          margin-bottom: 30px;
+          margin-bottom: 0;
         }
 
         form {
           text-align: left;
           font-family: "Poppins", sans-serif;
+          padding: 40px;
 
           .form-group {
             margin-bottom: 20px;
+
             label {
               display: block;
-              font-size: 14px;
-              margin-bottom: 8px;
-              font-weight: 500;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 150%;
+              margin-bottom: 4px;
             }
 
-            .input-field,
             .phone-input-group {
               display: flex;
               align-items: center;
               border: 1px solid $border-color;
-              border-radius: 12px;
+              border-radius: 20px; // Sistem standartı
               padding: 0 15px;
-              height: 48px;
+              height: 48px; // Sistem standartı
               transition: 0.3s;
+              margin-top: 6px;
 
               &:focus-within {
                 border-color: $primary-green;
+              }
+
+              .country-select {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border-right: 1px solid $border-color;
+                padding-right: 10px;
+                margin-right: 10px;
+                font-size: 14px;
+                .arrow {
+                    font-size: 12px;
+                    color: $text-light;
+                }
               }
 
               input {
@@ -141,55 +159,8 @@ $border-color: #e0e0e0;
 
               .icon {
                 color: $text-light;
-                font-size: 14px;
+                font-size: 18px;
               }
-              .icon-left {
-                margin-right: 10px;
-                color: $text-light;
-              }
-              .icon-right {
-                margin-left: 10px;
-                color: $text-light;
-                cursor: pointer;
-              }
-            }
-
-            .phone-input-group {
-              .country-select {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                border-right: 1px solid $border-color;
-                padding-right: 10px;
-                margin-right: 10px;
-                font-size: 14px;
-                color: $text-light;
-                img {
-                  width: 20px;
-                }
-              }
-            }
-
-            // Şifrəni unutmusunuz hissəsi bura əlavə edildi
-            .forgot-password-link {
-              text-align: right;
-              margin-top: 8px;
-              a {
-                color: $secondary-green;
-                text-decoration: none;
-                font-size: 12px;
-                font-weight: 500;
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
-
-            .hint {
-              font-size: 12px;
-              color: $text-light;
-              margin-top: 6px;
-              display: block;
             }
           }
 
@@ -199,55 +170,14 @@ $border-color: #e0e0e0;
             background: $primary-green;
             color: white;
             border: none;
-            font-family: "Poppins", sans-serif;
             border-radius: 12px;
             font-size: 16px;
             font-weight: 400;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 4px;
+            transition: 0.3s;
             &:hover {
               background: $secondary-green;
-            }
-          }
-
-          .divider {
-            text-align: center;
-            margin: 20px 0;
-            position: relative;
-            color: $text-light;
-            font-size: 14px;
-            &::before,
-            // &::after {
-            //   content: "";
-            //   position: absolute;
-            //   top: 50%;
-            //   width: 40%;
-            //   height: 1px;
-            //   background: $border-color;
-            // }
-            &::before {
-              left: 0;
-            }
-            &::after {
-              right: 0;
-            }
-          }
-
-          .google-btn {
-            width: 100%;
-            height: 50px;
-            background: #fff;
-            border: 1px solid $border-color;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            font-family: "Poppins", sans-serif;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            font-weight: 500;
-            .g-icon {
-              color: #db4437;
             }
           }
 
@@ -260,90 +190,64 @@ $border-color: #e0e0e0;
               color: $secondary-green;
               text-decoration: none;
               font-weight: 600;
+              font-size: 14px;
             }
           }
         }
       }
     }
   }
-  .error-text {
-    color: #ff4d4d;
-    font-size: 11px;
-    margin-top: 4px;
-    display: block;
-  }
-
-  .error-border {
-    border-color: #ff4d4d !important;
-  }
-
-  .input-field,
-  .phone-input-group {
-    transition: border-color 0.2s ease;
-  }
 }
 
-// Şəkildəki xüsusi dairəvi dizayn əlavələri
-.auth-card {
-  border-radius: 50px !important;
-  padding: 50px 40px !important;
-
-  .submit-btn,
-  .google-btn,
-  .phone-input-group,
-  .input-field {
-    border-radius: 25px !important;
-  }
-
-  .submit-btn {
-    background: #006b52 !important;
-    font-weight: 500 !important;
-  }
+.error-text {
+  color: #ff4d4d;
+  font-size: 11px;
+  margin-top: 4px;
+  display: block;
 }
 
-.login-wrapper {
-  position: relative;
-  overflow: hidden;
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   bottom: -150px;
-  //   left: -150px;
-  //   width: 450px;
-  //   height: 450px;
-  //   background: rgba(255, 255, 255, 0.05);
-  //   border-radius: 50%;
-  //   z-index: 0;
-  // }
+.error-border {
+  border-color: #ff4d4d !important;
 }
 
-// Mobil Adaptivlik hissələri olduğu kimi saxlanıldı
+// ------------------------------------------
+// MOBILE RESPONSIVE (LoginMain-dən kopyalanıb)
+// ------------------------------------------
+
 @media (max-width: 992px) {
   .login-wrapper {
-    padding: 20px 15px;
-    align-items: flex-start;
+    padding: 40px 20px;
+
     .login-container {
       flex-direction: column-reverse;
-      gap: 30px;
-      text-align: center;
+      gap: 40px;
+      align-items: center;
+
       .info-side {
-        width: 100%;
+        text-align: center;
+        order: 2;
+
         .logo-box {
-          justify-content: center;
-          margin-bottom: 25px;
-          img {
-            width: 50px;
-          }
+          margin-bottom: 30px;
+          img { width: 250px; }
         }
-        h2 {
-          font-size: 26px;
-        }
+        h2 { font-size: 28px; margin-bottom: 16px; }
+        .description { font-size: 20px; margin-bottom: 32px; }
+        .benefits-list li { font-size: 18px; justify-content: center; }
       }
+
       .form-side {
+        order: 1;
         width: 100%;
-        justify-content: center;
-        .auth-card {
-          border-radius: 30px !important;
+        max-width: 500px;
+
+        .auth-cardd {
+          max-width: 100%;
+          padding: 30px 20px 0;
+          border-radius: 30px; // 992px-də radius azalır
+
+          h3 { font-size: 28px; }
+          form { padding: 30px 20px; }
         }
       }
     }
@@ -352,21 +256,117 @@ $border-color: #e0e0e0;
 
 @media (max-width: 768px) {
   .login-wrapper {
-    padding: 10px;
-    align-items: center;
+    padding: 30px 15px;
+
     .login-container {
       .info-side {
-        h2 {
-          font-size: 20px;
+        .logo-box {
+          flex-direction: column;
+          gap: 10px;
+          img { width: 200px; }
         }
-        .description,
-        .benefits-list {
-          display: none;
+        h2 { font-size: 24px; }
+        .description { font-size: 18px; }
+        .benefits-list li {
+          font-size: 16px;
+          gap: 6px;
+          img { height: 24px; width: 24px; }
         }
       }
-      .form-side .auth-card {
-        box-shadow: none;
-        padding: 20px;
+
+      .form-side {
+        .auth-cardd {
+          padding: 25px 15px 0;
+          border-radius: 24px;
+
+          h3 { font-size: 24px; }
+          form {
+            padding: 25px 15px;
+            .form-group {
+              label { font-size: 15px; }
+              .phone-input-group {
+                height: 44px;
+                padding: 0 12px;
+                border-radius: 16px;
+                input { font-size: 14px; }
+              }
+            }
+            .submit-btn { height: 46px; font-size: 15px; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-wrapper {
+    padding: 20px 10px;
+
+    .login-container {
+      .info-side {
+        .logo-box img { width: 160px; }
+        h2 { font-size: 20px; }
+        .description { font-size: 16px; margin-bottom: 24px; }
+        .benefits-list li { font-size: 14px; margin-bottom: 16px; }
+      }
+
+      .form-side {
+        .auth-cardd {
+          padding: 20px 10px 0;
+          border-radius: 20px;
+
+          h3 { font-size: 22px; margin-bottom: 8px; }
+          .subtitle { font-size: 14px; }
+          
+          form {
+            padding: 20px 10px;
+            .form-group {
+              margin-bottom: 16px;
+              label { font-size: 14px; }
+              .phone-input-group {
+                height: 42px;
+                padding: 0 10px;
+                border-radius: 14px;
+              }
+            }
+            .submit-btn { height: 44px; border-radius: 10px; font-size: 14px; }
+            .footer-text { font-size: 11px; margin-top: 20px; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .login-wrapper {
+    padding: 15px 8px;
+    .login-container {
+      .info-side {
+        .logo-box img { width: 140px; }
+        h2 { font-size: 18px; }
+        .description { font-size: 14px; margin-bottom: 20px; }
+        .benefits-list li {
+            font-size: 13px;
+            img { height: 20px; width: 20px; }
+        }
+      }
+      .form-side {
+        .auth-cardd {
+          padding: 15px 8px 0;
+          border-radius: 16px;
+          h3 { font-size: 20px; }
+          form {
+            padding: 15px 8px;
+            .form-group .phone-input-group {
+               height: 40px;
+               padding: 0 8px;
+               border-radius: 12px;
+            }
+            .submit-btn { height: 42px; font-size: 13px; }
+          }
+        }
       }
     }
   }

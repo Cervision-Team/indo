@@ -567,3 +567,189 @@ $border-color: #e0e0e0;
     }
   }
 }
+
+// ============================================
+// RESPONSIVE DIZAYN (LoginMain üçün)
+// ============================================
+
+// 1. Tablet və Kiçik Desktoplar (992px-dən aşağı)
+@media (max-width: 992px) {
+  .login-wrapper {
+    padding: 40px 20px;
+    height: auto;
+    min-height: 100vh;
+
+    .login-container {
+      flex-direction: column; // Yan-yana yox, alt-alta düzülür
+      align-items: center;
+      gap: 40px;
+
+      // Sol tərəf (Məlumat hissəsi)
+      .info-side {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        order: 1; // Mobildə üstdə görünsün (istəsəniz 2 edib alta ata bilərsiniz)
+
+        .logo-box {
+          margin-bottom: 25px;
+          img {
+            width: 220px; // Logo kiçilir
+          }
+        }
+
+        h2 {
+          font-size: 26px; // Başlıq kiçilir
+          margin-bottom: 15px;
+        }
+
+        .description {
+          font-size: 18px;
+          margin-bottom: 30px;
+        }
+
+        .benefits-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center; // Mərkəzə düzülür
+          
+          li {
+            justify-content: center;
+            font-size: 16px;
+          }
+        }
+      }
+
+      // Sağ tərəf (Form hissəsi)
+      .form-side {
+        width: 100%;
+        max-width: 500px;
+        order: 2;
+
+        .auth-cardd {
+          padding: 40px 30px; // Kartın iç boşluğu azalır
+          border-radius: 40px; // Radius bir az azalır
+        }
+      }
+    }
+  }
+}
+
+// 2. Mobil Telefonlar (576px-dən aşağı)
+@media (max-width: 576px) {
+  .login-wrapper {
+    padding: 20px 15px;
+
+    .login-container {
+      gap: 30px;
+
+      .info-side {
+        .logo-box img {
+          width: 180px;
+        }
+        h2 {
+          font-size: 22px;
+        }
+        .description {
+          font-size: 15px;
+          line-height: 1.4;
+        }
+        // Çox kiçik ekranlarda maddələri gizlətmək istəsəniz:
+        // .benefits-list { display: none; }
+      }
+
+      .form-side {
+        .auth-cardd {
+          padding: 30px 20px;
+          border-radius: 30px;
+          width: 100%;
+
+          h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+          }
+
+          .subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+
+          form {
+            padding: 0; // Formun öz paddingini sıfırlayırıq ki, yer qazanaq
+
+            .form-group {
+              margin-bottom: 15px;
+
+              label {
+                font-size: 14px;
+              }
+
+              .input-field,
+              .phone-input-group {
+                height: 48px; // İnput hündürlüyü mobildə ideal ölçüyə gəlir
+                border-radius: 15px;
+                padding: 0 12px;
+
+                input {
+                  font-size: 14px;
+                }
+                
+                .icon, .icon-left, .icon-right {
+                  font-size: 16px;
+                }
+              }
+              
+              .error-text {
+                font-size: 12px;
+              }
+            }
+
+            .submit-btn,
+            .google-btn {
+              height: 48px;
+              font-size: 15px;
+              border-radius: 12px;
+            }
+
+            .divider {
+              font-size: 13px;
+              margin: 15px 0;
+            }
+
+            .footer-text {
+              font-size: 13px;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 3. Kiçik Ekranlı Telefonlar (iPhone SE, Galaxy Fold və s. - 360px)
+@media (max-width: 370px) {
+  .login-wrapper .login-container .form-side .auth-cardd {
+    padding: 25px 15px;
+    border-radius: 20px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    form {
+      .form-group {
+        .input-field,
+        .phone-input-group {
+          height: 44px; // Daha yığcam
+        }
+      }
+
+      .submit-btn,
+      .google-btn {
+        height: 44px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -4,72 +4,77 @@ $text-dark: #333333;
 $text-light: #666666;
 $border-color: #e0e0e0;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .login-wrapper {
   min-height: 100vh;
-  background-color: $primary-green;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 54px 20px;
   font-family: "Poppins", sans-serif;
-  position: relative;
-  overflow: hidden;
-
+  background-image: url("../../../image/register-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .login-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
-    align-items: center;
+    align-items: start;
     gap: 60px;
-    z-index: 1;
+    justify-content: center;
 
     .info-side {
       flex: 1;
       color: #ffffff;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
-      .logo-box img {
-        width: 300px;
-        height: auto;
+      .logo-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
         margin-bottom: 40px;
+        img {
+          width: 300px;
+          height: auto;
+        }
       }
 
       h2 {
-        font-size: 32px;
-        font-weight: 500;
+        font-size: 34px;
+        line-height: 1.3;
         margin-bottom: 20px;
+        font-weight: 500;
+        text-align: center;
       }
       .description {
-        font-size: 18px;
+        font-size: 24px;
         opacity: 0.9;
         margin-bottom: 40px;
+        text-align: center;
         font-weight: 300;
       }
 
       .benefits-list {
         list-style: none;
         padding: 0;
-        display: inline-block;
-        text-align: left;
         li {
           margin-bottom: 20px;
           display: flex;
           align-items: center;
-          font-size: 16px;
-          // &::before {
-          //   content: "✓";
-          //   display: inline-flex;
-          //   justify-content: center;
-          //   align-items: center;
-          //   width: 28px;
-          //   height: 28px;
-          //   background: rgba(255, 255, 255, 0.15);
-          //   border-radius: 50%;
-          //   margin-right: 15px;
-          // }
+          font-size: 20px;
+          font-weight: 300;
+          gap: 8px;
+          img {
+            height: 32px;
+            width: 32px;
+          }
         }
       }
     }
@@ -77,112 +82,157 @@ $border-color: #e0e0e0;
     .form-side {
       flex: 1;
       display: flex;
-      justify-content: center;
 
-      .auth-card {
+      .auth-cardd {
         background: #ffffff;
-        padding: 50px 40px;
         border-radius: 50px;
         width: 100%;
-        max-width: 480px;
+        max-width: 566px;
         text-align: center;
+        padding: 50px 40px; // Şəkil 2-də padding daha geniş görünür
 
         h3 {
-          font-size: 28px;
+          font-size: 32px; // Şəkil 2-dəki böyük başlıq
           font-weight: 600;
+          margin-bottom: 15px;
           color: $text-dark;
-          margin-bottom: 10px;
         }
         .subtitle {
-          color: $text-light;
           font-size: 14px;
+          font-weight: 400;
+          line-height: 1.5;
+          color: $text-light;
           margin-bottom: 30px;
         }
 
-        .form-group {
-          margin-bottom: 20px;
+        form {
           text-align: left;
-          label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 500;
-          }
+          font-family: "Poppins", sans-serif;
+          // padding: 40px; // Şəkil 2-də padding auth-cardd-dan gəlir, form-dan yox
 
-          .input-field {
-            display: flex;
-            align-items: center;
-            border: 1px solid $border-color;
-            border-radius: 25px;
-            padding: 0 20px;
-            height: 54px;
-            transition: all 0.3s;
+          .form-group {
+            margin-bottom: 25px; // Şəkil 2-də ara məsafələr genişdir
 
-            &:focus-within {
-              border-color: $primary-green;
-            }
-
-            input {
-              flex: 1;
-              border: none;
-              outline: none;
+            label {
+              display: block;
               font-size: 15px;
+              font-weight: 500;
+              margin-bottom: 8px;
+              color: $text-dark;
             }
-            .icon-left,
-            .icon-right {
-              color: #999;
-            }
-            .eye-icon {
-              cursor: pointer;
+
+            .input-field {
               display: flex;
               align-items: center;
+              border: 1px solid $border-color;
+              border-radius: 25px; // Şəkil 2-dəki oval inputlar
+              padding: 0 20px;
+              height: 52px; // Şəkil 2-də inputlar hündürdür
+              transition: 0.3s;
+              background-color: #fff;
+
+              &:focus-within {
+                border-color: $primary-green;
+              }
+
+              input {
+                flex: 1;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                background: transparent;
+                padding: 0 10px;
+              }
+
+              .icon-left,
+              .icon-right {
+                color: #999;
+                font-size: 16px;
+              }
+              .eye-icon {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+              }
+            }
+
+            .hint {
+              font-size: 11px;
+              color: $text-light;
+              margin-top: 6px;
+              display: block;
+              font-weight: 400;
             }
           }
 
-          .hint {
-            font-size: 11px;
-            color: #999;
-            margin-top: 8px;
-            display: block;
-          }
-          .error-text {
-            color: #ff4d4d;
-            font-size: 11px;
-            margin-top: 5px;
-            display: block;
-          }
-        }
+          .submit-btn {
+            width: 100%;
+            height: 55px; // Şəkil 2-dəki böyük düymə
+            background: $primary-green; // Şəkil 2-dəki tünd yaşıl
+            color: white;
+            border: none;
+            border-radius: 30px; // Tam oval
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
 
-        .submit-btn {
-          width: 100%;
-          height: 54px;
-          background: linear-gradient(
-            135deg,
-            $primary-green 0%,
-            $secondary-green 100%
-          );
-          color: white;
-          border: none;
-          border-radius: 25px;
-          font-size: 16px;
-          font-weight: 600;
-          cursor: pointer;
-          margin-top: 15px;
-          transition: all 0.3s ease;
-
-          &:hover {
-            transform: translateY(-2px);
-          }
-
-          &:active {
-            transform: translateY(0);
+            &:hover {
+              background: darken($primary-green, 5%);
+            }
+            &:disabled {
+              opacity: 0.7;
+            }
           }
         }
 
+        // UĞURLU HAL DİZAYNI (ŞƏKİL 3)
         .success-content {
-          .success-img {
-            width: 180px;
-            margin-bottom: 25px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 20px 0;
+
+          .img-wrapper {
+            margin-bottom: 30px;
+            // Şəkil ölçüsü
+            .success-img {
+              width: 150px; // Şəkil 3-dəki ölçüyə uyğun
+              height: auto;
+            }
+          }
+
+          h3 {
+            font-size: 28px; // Şəkil 3-dəki qalın başlıq
+            margin-bottom: 10px;
+            color: #000;
+          }
+
+          .subtitle-success {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 40px; // Şəkil 3-də düymə ilə məsafə var
+            font-weight: 400;
+          }
+
+          .submit-btn {
+            width: 100%;
+            max-width: 300px; // Şəkil 3-də düymə çox enli deyil
+            height: 50px;
+            background: $primary-green;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              background: darken($primary-green, 5%);
+            }
           }
         }
       }
@@ -190,43 +240,75 @@ $border-color: #e0e0e0;
   }
 }
 
-/* Mobil Adaptivlik */
+.error-text {
+  color: #ff4d4d;
+  font-size: 11px;
+  margin-top: 4px;
+  display: block;
+}
+.error-border {
+  border-color: #ff4d4d !important;
+}
+
+// RESPONSIVE
 @media (max-width: 992px) {
   .login-wrapper {
-    padding: 20px;
+    padding: 40px 20px;
     .login-container {
       flex-direction: column-reverse;
-      gap: 30px;
+      gap: 40px;
       .info-side {
-        .logo-box img {
-          width: 200px;
-          margin-bottom: 20px;
+        .logo-box {
+          margin-bottom: 30px;
+          img {
+            width: 250px;
+          }
         }
         h2 {
-          font-size: 24px;
+          font-size: 28px;
         }
-        .description,
-        .benefits-list {
-          display: none;
+        .description {
+          font-size: 20px;
         }
       }
-      .form-side .auth-card {
+      .form-side .auth-cardd {
         padding: 40px 25px;
-        border-radius: 35px;
+        border-radius: 30px;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-wrapper .login-container .form-side .auth-cardd {
+    padding: 30px 20px;
+    h3 {
+      font-size: 24px;
+    }
+    form .form-group .input-field {
+      height: 48px;
+      padding: 0 15px;
     }
   }
 }
 
 @media (max-width: 480px) {
-  .login-wrapper .login-container .form-side .auth-card {
-    padding: 30px 20px;
+  .login-wrapper .login-container .form-side .auth-cardd {
+    padding: 25px 15px;
+    border-radius: 20px;
     h3 {
       font-size: 22px;
     }
+    .subtitle {
+      font-size: 13px;
+    }
+    form .submit-btn {
+      height: 45px;
+      font-size: 14px;
+    }
+    .success-content .submit-btn {
+      height: 45px;
+      font-size: 14px;
+    }
   }
-}
-
-.error-border {
-  border-color: #ff4d4d !important;
 }

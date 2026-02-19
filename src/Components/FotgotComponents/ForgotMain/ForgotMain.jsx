@@ -1,36 +1,36 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { FaPhone, FaChevronDown } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Yönləndirmə üçün əlavə edildi
+import { FaChevronDown } from "react-icons/fa";
+import { MdLocalPhone } from "react-icons/md"; // LoginMain stilinə uyğun ikon
+import { useNavigate } from "react-router-dom";
 import Logo from "../../../image/white-logo.png";
+import Icon from "../../../image/register-icon.png"; // Sol tərəfdəki siyahı üçün
 import './ForgotMain.scss';
 
 const validationSchema = Yup.object({
   phone: Yup.string()
-    // Həm boşluqlu, həm də boşluqsuz 9 rəqəmli nömrəni qəbul edir
     .matches(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/, "Nümunə: 557895456")
     .required("Telefon nömrəsi mütləqdir"),
 });
 
 function ForgotMain() {
-  const navigate = useNavigate(); // Hook-u çağırırıq
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: { phone: "" },
     validationSchema,
     onSubmit: (values) => {
       console.log("OTP göndəriləcək nömrə:", values.phone);
-      
-      // Simulyasiya: Form göndərilir və uğurlu olduqda yönləndirilir
-      // Reallıqda bura API call əlavə edəcəksiniz
-      navigate("/otp"); 
+      navigate("/otp");
     },
   });
 
   return (
     <div className="login-wrapper">
       <div className="login-container">
+        
+        {/* Sol Tərəf - Info (Dizayn Sisteminə uyğunlaşdırıldı) */}
         <div className="info-side">
           <div className="logo-box">
             <img src={Logo} alt="indo.az logo" />
@@ -40,14 +40,24 @@ function ForgotMain() {
             Hər bir ianə bir ümiddir. Birlikdə daha çox insana kömək edə bilərik
           </p>
           <ul className="benefits-list">
-            <li>Etibarlı platformada təhlükəsiz ianə</li>
-            <li>Şəffaf və izlənilə bilən yardım</li>
-            <li>Hədəflərinizi seçin və dəstək olun</li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Etibarlı platformada təhlükəsiz ianə</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Şəffaf və izlənilə bilən yardım</p>
+            </li>
+            <li>
+              <img src={Icon} alt="" />
+              <p>Hədəflərinizi seçin və dəstək olun</p>
+            </li>
           </ul>
         </div>
 
+        {/* Sağ Tərəf - Form */}
         <div className="form-side">
-          <div className="auth-card">
+          <div className="auth-cardd"> {/* Class adı 'auth-cardd' olaraq dəyişdirildi */}
             <h3>Şifrənizi unutmusunuz?</h3>
             <p className="subtitle">
               Mobil nömrənizi daxil edin. Təsdiq üçün sizə OTP kodu göndəriləcək.
@@ -62,7 +72,6 @@ function ForgotMain() {
                   }`}
                 >
                   <div className="country-select">
-                    <img src="https://flagcdn.com/w20/az.png" alt="AZ" />
                     <span>+994</span>
                     <FaChevronDown className="arrow" />
                   </div>
@@ -72,7 +81,7 @@ function ForgotMain() {
                     placeholder="557895456"
                     {...formik.getFieldProps("phone")}
                   />
-                  <FaPhone className="icon" />
+                  <MdLocalPhone className="icon" />
                 </div>
                 {formik.touched.phone && formik.errors.phone && (
                   <span className="error-text">{formik.errors.phone}</span>
@@ -88,7 +97,9 @@ function ForgotMain() {
               </button>
 
               <p className="footer-text">
-                <a href="/login" style={{ fontSize: "14px" }}>Geri qayıt</a>
+                <a href="/login" onClick={(e) => { e.preventDefault(); navigate("/login"); }}>
+                  Geri qayıt
+                </a>
               </p>
             </form>
           </div>
