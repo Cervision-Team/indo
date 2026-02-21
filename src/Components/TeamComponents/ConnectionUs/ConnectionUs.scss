@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.connection-us {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+
+  &__banner {
+    background-color: #1b8a73; // yaşıl fon
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 406px;
+  }
+
+  &__title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    max-width: 800px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+
+  &__button {
+    background: #f47d5c;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: #e36b48;
+      transform: translateY(-0.5px);
+    }
+  }
+
+  /* --------- RESPONSIVE --------- */
+
+  /* Tablet */
+  @media (max-width: 992px) {
+    padding: 16px;
+
+    &__banner {
+      padding: 32px 16px;
+      height: auto; // kontentə görə hündürlük
+    }
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+      max-width: 600px;
+    }
+  }
+
+  /* Mobil */
+  @media (max-width: 600px) {
+    padding: 12px;
+
+    &__banner {
+      padding: 24px 12px;
+    }
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+
+    &__button {
+      font-size: 13px;
+      padding: 10px 22px;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$primary-color: #00796b;
+$light-bg: #e0f2f1;
+$text-color: #333;
+$card-radius: 16px;
+
+.team-little {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 20px 0;
+
+  .stat-card {
+    background: #fff;
+    border-radius: $card-radius;
+    padding: 30px 20px;
+    width: 234px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    img {
+      max-width: 92px;
+      margin-bottom: 16px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &__number {
+      font-size: 36px;
+      font-weight: 500;
+      color: $text-color;
+      margin-bottom: 8px;
+    }
+
+    &__label {
+      font-size: 16px;
+      color: #666;
+      font-weight: 500;
+    }
+  }
+
+  /* --------- RESPONSIVE --------- */
+
+  /* 1) Laptop / kiçik desktop – mərkəzləşdir, spacing bərabər olsun */
+  @media (max-width: 1200px) {
+    justify-content: center; // kartlar ortada toplansın
+    .stat-card {
+      width: 220px;
+    }
+  }
+
+  /* 2) Tablet – 2–3 kart yan-yana */
+  @media (max-width: 900px) {
+    justify-content: center;
+    .stat-card {
+      width: 200px;
+    }
+  }
+
+  /* 3) Mobil – 1 kart hər sətirdə (tam eni tutsun) */
+  @media (max-width: 600px) {
+    gap: 16px;
+
+    .stat-card {
+      width: 100%;          // container-in enini tutsun
+      max-width: 320px;     // amma çox böyüməsin
+    }
+
+    /* Ortaya gətirmək üçün */
+    justify-content: center;
+  }
+}

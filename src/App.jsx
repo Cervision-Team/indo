@@ -19,6 +19,9 @@ import DonationPage from "./Pages/DonationPage";
 import NotMean from "./Components/NotMean/NotMean";
 import SuccessDonation from "./Components/DonationComponents/SuccessDonation/SuccessDonation";
 import ErrorDonation from "./Components/DonationComponents/ErrorDonation/ErrorDonation";
+import RulesPage from "./Pages/RulesPage";
+import AboutPage from "./Pages/AboutPage";
+import TeamPage from "./Pages/TeamPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -53,14 +56,22 @@ const AppContent = () => {
       {!hideLayout && <NotMean />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        <Route path="/about" element={<AboutPage />} />
+
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/otp" element={<OtpPage />} />
         <Route path="/forgot" element={<ForgotPage />} />
         <Route path="/reset" element={<ResetPage />} />
+
         <Route path="/donation" element={<DonationPage />} />
         <Route path="/donation-success" element={<SuccessDonation />} />
         <Route path="/donation-error" element={<ErrorDonation />} />
+        <Route path="/rules" element={<RulesPage />} />
+
+        {/* <Route path="/team" element={<TeamPage />} /> */}
+
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

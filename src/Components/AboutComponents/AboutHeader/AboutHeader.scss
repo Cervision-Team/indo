@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.about-header {
+  width: 100%;
+  max-width: 1360px; 
+  margin: 0 auto;
+  padding: 20px 0px; 
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  display: block;
+
+  &__banner {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    top: 40px;
+    left: 40px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  &__description {
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 24px;
+    font-weight: 500;
+    width: 566px;
+    max-width: 100%;
+  }
+
+  // Tablet
+  @media (max-width: 1024px) {
+    padding: 20px 40px;
+
+    &__banner {
+      height: 350px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 20px;
+      width: 450px;
+    }
+  }
+
+  // Mobil
+  @media (max-width: 768px) {
+    padding: 15px 20px; // kənar boşluq azalır, amma blok yenə mərkəzdədir
+
+    &__banner {
+      height: 300px;
+    }
+
+    &__content {
+      top: 30px;
+      left: 20px;
+      right: 20px;
+    }
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    &__description {
+      font-size: 16px;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  // Çox kiçik ekranlar
+  @media (max-width: 480px) {
+    padding: 10px 15px;
+
+    &__banner {
+      height: 250px;
+    }
+
+    &__content {
+      top: 20px;
+      left: 15px;
+      right: 15px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__description {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}

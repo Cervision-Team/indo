@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+$bg-light: #fbfcfe;
+$title-color: #233044;
+$text-color: #5b6474;
+$accent: #f3794c;
+$card-bg: #ffffff;
+$card-border: #e2e5ee;
+$role-color: #008271;
+
+.about-team {
+  padding: 72px 0;
+  background-color: $bg-light;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 48px 0;
+  }
+
+  .container {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 500;
+    color: $title-color;
+    margin-bottom: 8px;
+
+    @media (max-width: 992px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 26px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $text-color;
+    max-width: 420px;
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+      max-width: 100%;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    font-weight: 500;
+    color: $accent;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid rgba($accent, 0.4);
+    padding-bottom: 3px;
+    margin-top: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+
+    .arrow {
+      font-size: 14px;
+    }
+
+    &:hover {
+      border-color: $accent;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+}
+
+.team-card {
+  background-color: $card-bg;
+  border-radius: 12px;
+  border: 1px solid $card-border;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  &__image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+    @media (max-width: 992px) {
+      height: 260px;
+    }
+
+    @media (max-width: 576px) {
+      height: 230px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__content {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (max-width: 576px) {
+      padding: 16px 18px;
+      gap: 6px;
+    }
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 400;
+    color: $title-color;
+
+    @media (max-width: 576px) {
+      font-size: 18px;
+    }
+  }
+
+  &__role {
+    font-size: 14px;
+    font-weight: 400;
+    color: $role-color;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+
+    @media (max-width: 576px) {
+      font-size: 12px;
+    }
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $text-color;
+    font-weight: 400;
+    letter-spacing: -0.15px;
+
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
+  }
+}
+ 

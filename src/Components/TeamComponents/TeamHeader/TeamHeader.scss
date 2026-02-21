@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.team-header {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  max-width: 1360px; 
+  margin: 0 auto;
+  padding: 20px 0px; 
+  // Şəkli saxlayan hissə (İçəridəki qutu)
+  &__banner {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    // padding-left burada lazım deyil, çünki __content absolute verilib (top/left ilə)
+  }
+
+  // Qaranlıq pərdə
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  // Yazılar
+  &__content {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    top: 40px;
+    left: 40px;
+    // Genişliyi aşağıda responsive hissədə idarə edəcəyik
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 566px; // Desktop üçün sabit ölçü
+    max-width: 100%; // Daşmanın qarşısını almaq üçün
+  }
+
+  &__description {
+    line-height: 1.6;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 566px; // Desktop üçün sabit ölçü
+    max-width: 100%; // Daşmanın qarşısını almaq üçün
+  }
+
+  // ----------------------------------------------------
+  // RESPONSIVE DIZAYN (MEDİA SORĞULARI)
+  // ----------------------------------------------------
+
+  // 1. Tablet və Kiçik Laptoplar (max-width: 1024px)
+  @media (max-width: 1024px) {
+    padding: 20px 40px; // Kənar boşluqları biraz azaldırıq
+
+    &__banner {
+      height: 350px; // Hündürlüyü azaldırıq
+    }
+
+    &__title {
+      font-size: 32px; // Başlıq kiçilir
+    }
+
+    &__description {
+      font-size: 20px; // Mətn kiçilir
+      width: 450px; // Mətn qutusunun enini azaldırıq
+    }
+  }
+
+  // 2. Mobil Cihazlar (max-width: 768px)
+  @media (max-width: 768px) {
+    padding: 15px 20px; // Kənar boşluqlar minimuma enir
+
+    &__banner {
+      height: 300px;
+    }
+
+    &__content {
+      top: 30px;
+      left: 20px;
+      right: 20px; // Mətnin sağdan çıxmaması üçün
+    }
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    &__description {
+      font-size: 16px; // Mobildə oxunaqlı standart ölçü
+      width: auto; // Sabit eni ləğv edirik
+      max-width: 100%; // Ekranın eninə uyğunlaşır
+    }
+  }
+
+  // 3. Çox kiçik ekranlar (max-width: 480px)
+  @media (max-width: 480px) {
+    padding: 10px 15px;
+
+    &__banner {
+      height: 250px;
+    }
+
+    &__content {
+      top: 20px;
+      left: 15px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__description {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}

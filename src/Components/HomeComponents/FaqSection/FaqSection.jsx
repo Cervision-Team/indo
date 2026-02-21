@@ -12,11 +12,6 @@ function FaqSection() {
         "Bəli, könüllü ola bilərsiniz! Xüsusi təcrübə tələb olunmur — sadəcə yardım etmək istəyi kifayətdir. Könüllülərimiz tədbirlərdə, sosial layihələrdə və məlumatlandırma işlərində bizə dəstək olur.",
     },
     {
-      question: "İanələr hara sərf olunur?",
-      answer:
-        "Toplanan ianələr birbaşa ehtiyacı olan ailələrin ərzaq, dərman və təhsil xərclərinin qarşılanmasına yönəldilir.",
-    },
-    {
       question: "Layihələrinizdə necə iştirak edə bilərəm?",
       answer:
         "Saytımızda qeydiyyatdan keçərək və ya əlaqə bölməsindən bizə yazaraq layihələrimizə qoşula bilərsiniz.",

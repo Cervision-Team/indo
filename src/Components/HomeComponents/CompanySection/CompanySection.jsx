@@ -1,13 +1,17 @@
-import React, { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 // React Icons import edildi
-import { HiArrowLeft, HiArrowRight } from "react-icons/hi2"; 
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 import { MdVerified } from "react-icons/md"; // Verifikasiya ikonu üçün
-import 'swiper/css';
-import './CompanySection.scss';
+import "swiper/css";
+import "./CompanySection.scss";
 
-import CampaignImg from '../../../image/company-image.png';
+import CampaignImg1 from "../../../image/company-image1.jpg";
+import CampaignImg2 from "../../../image/company-image2.jpg";
+import CampaignImg3 from "../../../image/company-image3.jpg";
+import CampaignImg4 from "../../../image/company-image4.jpg";
+import CampaignImg5 from "../../../image/company-image5.jpg";
 
 function CompanySection() {
   const swiperRef = useRef(null);
@@ -15,28 +19,34 @@ function CompanySection() {
   const campaigns = [
     {
       id: 1,
-      author: "Cahangir Qasımov",
-      title: "Az təminatlı ailələrə dəstək",
-      daysLeft: 22,
-      progress: 40,
-      image: CampaignImg
+      author: "Bir Ümid, Bir Dəstək",
+      title: "Əhalinin həssas gruplarına maddi dəstək kampaniyası",
+      image: CampaignImg1,
     },
     {
       id: 2,
-      author: "Cahangir Qasımov",
-      title: "Qazi və müharibə iştirakçılarına yardım",
-      daysLeft: 22,
-      progress: 60,
-      image: CampaignImg
+      author: "Bir Ümid, Bir Dəstək",
+      title: "Vətən müharibəsi iştirakçıları və onların ailələrinə dəstək",
+      image: CampaignImg2,
     },
     {
       id: 3,
-      author: "Cahangir Qasımov",
-      title: "Uşaqlar evi və sığınacaqlara dəstək",
-      daysLeft: 15,
-      progress: 30,
-      image: CampaignImg
-    }
+      author: "Bir Ümid, Bir Dəstək",
+      title: "İstedadlı şagird və tələbələrə dəstək",
+      image: CampaignImg3,
+    },
+    {
+      id: 4,
+      author: "Bir Ümid, Bir Dəstək",
+      title: "Uşaq evləri, sığınacaqlar və qocalar evlərinə dəstək",
+      image: CampaignImg4,
+    },
+    {
+      id: 5,
+      author: "Bir Ümid, Bir Dəstək",
+      title: "Regionlarda maarifləndirmə tədbirləri",
+      image: CampaignImg5,
+    },
   ];
 
   return (
@@ -46,12 +56,18 @@ function CompanySection() {
           <div className="text-side">
             <h2>Daimi Kampaniyalarımız</h2>
             <p>“Xeyirxahlıqla toxunduq, həyatları yenidən çiçəkləndirdik...”</p>
-            
+
             <div className="custom-nav-btns">
-              <button onClick={() => swiperRef.current?.swiper.slidePrev()} className="prev-btn">
+              <button
+                onClick={() => swiperRef.current?.swiper.slidePrev()}
+                className="prev-btn"
+              >
                 <HiArrowLeft size={24} />
               </button>
-              <button onClick={() => swiperRef.current?.swiper.slideNext()} className="next-btn">
+              <button
+                onClick={() => swiperRef.current?.swiper.slideNext()}
+                className="next-btn"
+              >
                 <HiArrowRight size={24} />
               </button>
             </div>
@@ -68,7 +84,7 @@ function CompanySection() {
               breakpoints={{
                 320: { slidesPerView: 1.1 },
                 768: { slidesPerView: 1.5 },
-                1024: { slidesPerView: 2.2 }
+                1024: { slidesPerView: 2.2 },
               }}
             >
               {campaigns.map((item) => (
@@ -79,21 +95,10 @@ function CompanySection() {
                     </div>
                     <div className="card-body">
                       <div className="author">
-                        <span>{item.author}</span>
-                        <MdVerified className="verified-icon" />
+                        <span>"{item.author}"</span>
+                        {/* <MdVerified className="verified-icon" /> */}
                       </div>
                       <h3>{item.title}</h3>
-                      
-                      <div className="progress-container">
-                        <div className="progress-bar">
-                          <div className="progress-fill" style={{ width: `${item.progress}%` }}></div>
-                        </div>
-                        <div className="progress-info">
-                          <span>Toplam</span>
-                          <span>Qalan gün: {item.daysLeft}</span>
-                        </div>
-                      </div>
-
                       <button className="donate-btn">İanə et</button>
                     </div>
                   </div>
