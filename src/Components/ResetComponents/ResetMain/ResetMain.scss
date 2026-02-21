@@ -179,7 +179,6 @@ $border-color: #e0e0e0;
             transition: 0.3s;
 
             &:hover {
-              background: darken($primary-green, 5%);
             }
             &:disabled {
               opacity: 0.7;
@@ -231,7 +230,6 @@ $border-color: #e0e0e0;
             transition: 0.3s;
 
             &:hover {
-              background: darken($primary-green, 5%);
             }
           }
         }

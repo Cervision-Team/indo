@@ -193,7 +193,6 @@ $light-green-bg: #eaf6f3; // "Əsas səhifəyə qayıt" butoni üçün
               color: #ffffff;
 
               &:hover {
-                background: darken($error-red, 8%);
                 transform: translateY(-2px);
               }
             }
@@ -203,7 +202,6 @@ $light-green-bg: #eaf6f3; // "Əsas səhifəyə qayıt" butoni üçün
               color: #004d40;      // Tünd yaşıl mətn
 
               &:hover {
-                background: darken(#dbece9, 5%);
               }
             }
           }

@@ -198,7 +198,6 @@ $success-color: #10b981; // Uğurlu status rəngi
               color: #ffffff;
 
               &:hover {
-                background: darken($primary-green, 5%);
                 transform: translateY(-2px);
               }
             }
@@ -207,9 +206,7 @@ $success-color: #10b981; // Uğurlu status rəngi
               background: $light-green-bg;
               color: $primary-green;
 
-              &:hover {
-                background: darken($light-green-bg, 5%);
-              }
+             
             }
           }
         }
