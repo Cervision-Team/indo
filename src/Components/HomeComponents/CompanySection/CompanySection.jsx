@@ -11,7 +11,7 @@ import CampaignImg1 from "../../../image/company-image1.jpg";
 import CampaignImg2 from "../../../image/company-image2.jpg";
 import CampaignImg3 from "../../../image/company-image3.jpg";
 import CampaignImg4 from "../../../image/company-image4.jpg";
-import CampaignImg5 from "../../../image/company-image5.jpg";
+import CampaignImg5 from "../../../image/company-image5.JPG";
 
 function CompanySection() {
   const swiperRef = useRef(null);

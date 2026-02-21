@@ -3,7 +3,7 @@ import { MdVerified } from "react-icons/md";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import './TrendCompanySection.scss';
 
-import CampaignImg1 from '../../../image/trend-image1.jpg';
+import CampaignImg1 from '../../../image/trend-image1.JPG';
 import CampaignImg2 from '../../../image/trend-image2.jpg';
 import CampaignImg3 from '../../../image/trend-image3.jpg';
 import CampaignImg4 from '../../../image/trend-image4.jpg';

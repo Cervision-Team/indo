@@ -5,9 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./HomeHeader.scss";
 import Image1 from "../../../image/header-image1.jpg";
-import Image2 from "../../../image/header-image2.jpg";
+import Image2 from "../../../image/header-image2.JPG";
 import Image3 from "../../../image/header-image3.jpg";
-import Image4 from "../../../image/header-image4.jpg";
+import Image4 from "../../../image/header-image4.JPG";
 import Image5 from "../../../image/header-image5.jpg";
 
 function HomeHeader() {
