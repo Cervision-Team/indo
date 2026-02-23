@@ -51,7 +51,7 @@ function EveryBodyMain() {
         <div className="top-section">
           <img src={Logo} alt="indo.az" className="logo" />
           <p className="tagline">
-            Azərbaycanın ən böyük xeyriyyəçilik platforması
+            {/* Azərbaycanın ən böyük xeyriyyəçilik platforması */}
           </p>
         </div>
         <div className="middle-section">
