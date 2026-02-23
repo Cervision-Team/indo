@@ -28,7 +28,7 @@ function Navbar() {
     { to: "/ianeler", label: "İanələr" },
     { to: "/team", label: "Komandamız" },
     { to: "/bloq", label: "Bloq" },
-    { to: "/elaqe", label: "Əlaqə" },
+    { to: "/contact", label: "Əlaqə" },
   ];
 
   return (

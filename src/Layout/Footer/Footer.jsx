@@ -45,9 +45,9 @@ function Footer() {
 
         <div className="footer-bottom">
           <div className="bottom-left">
-            <Link to="/terms">Terms</Link>
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/cookies">Cookies</Link>
+            <Link to="/rules">Terms</Link>
+            <Link to="/rules">Privacy</Link>
+            <Link to="/rules">Cookies</Link>
           </div>
 
           <div className="bottom-center">

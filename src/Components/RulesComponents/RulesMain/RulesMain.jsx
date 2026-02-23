@@ -18,7 +18,7 @@ function RulesMain() {
       icon: Icon1,
       content: [
         "Biz kimik?",
-        "indo.az sosial cəhətdən həssas əhali qruplarına sosial dəstək və inkişaf yönümlü xeyriyyə fəaliyyətlərinin və hüquqi maarifləndirmənin həyata keçirilməsi üzrə aparıcı milli təminatçılarından və Azərbaycanın ən böyük xeyriyyəçilik platformasıdır.",
+        "indo.az sosial cəhətdən həssas əhali qruplarına sosial dəstək və inkişaf yönümlü xeyriyyə fəaliyyətlərinin və hüquqi maarifləndirmənin həyata keçirilməsi üzrə aparıcı milli təminatçılarından biridir.",
         "Məxfilik öhdəliyimiz:",
         "Bizə təqdim olunan şəxsi məlumatların qorunmasına olan məsuliyyətimizi ciddi şəkildə qəbul edirik. Bu bəyanat, bu məlumatların necə toplandığını, necə istifadə olunduğunu, necə qorunduğunu və sizin məxfilik hüquqlarınızı (əgər tətbiq olunursa) izah edir.",
         "Bu Məxfilik Bəyanatı dəyişərsə:",
