@@ -1,0 +1,381 @@
+// Dəyişənlər
+$primary-green: #007460;
+$light-green: #eef7f5;
+$bg-color: #f9f9f9;
+$text-dark: #333;
+$text-gray: #666;
+$border-color: #e0e0e0;
+
+// Responsivlik üçün Mixin-lər
+@mixin tablet {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small-mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.contact-wrapper {
+  background-color: $bg-color;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+
+  .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+
+  .contact-header {
+    color: white;
+    padding: 60px 0 120px 0;
+    text-align: left;
+    height: 424px;
+    background-image: url("../../../image/contact-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include tablet {
+      height: auto;
+      padding: 60px 0 100px 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 60px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      @include tablet {
+        font-size: 42px;
+      }
+      @include mobile {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      font-size: 24px;
+      font-weight: 400;
+      @include tablet {
+        font-size: 18px;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .contact-content {
+    display: flex;
+    gap: 30px;
+    margin-top: -80px;
+
+    @include tablet {
+      flex-direction: column;
+      margin-top: -60px;
+      gap: 20px;
+    }
+  }
+
+  .info-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    .info-card {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      height: 258px;
+
+      @include tablet {
+        height: auto;
+        min-height: 220px;
+      }
+      @include mobile {
+        min-height: unset;
+        padding: 20px;
+      }
+
+      .icon-box-text {
+        display: flex;
+        align-items: center;
+
+        .icon-box {
+          background-color: $primary-green;
+          color: white;
+          min-width: 62px;
+          height: 62px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include mobile {
+            min-width: 50px;
+            height: 50px;
+          }
+        }
+
+        h3 {
+          font-size: 20px;
+          margin-left: 20px;
+          font-weight: 500;
+          @include mobile {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .details {
+        .bold {
+          color: $text-dark;
+          margin-bottom: 8px;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        p {
+          color: $text-gray;
+          margin-bottom: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.2px;
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: $text-gray;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+          transition: 0.3s;
+          &:hover {
+            color: $primary-green;
+          }
+        }
+      }
+    }
+  }
+
+  .form-side {
+    flex: 2;
+
+    .form-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      @include mobile {
+        padding: 25px;
+      }
+
+      h3 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: $text-gray;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .row {
+          display: flex;
+          gap: 20px;
+          @include mobile {
+            flex-direction: column;
+            gap: 15px;
+          }
+        }
+
+        .form-group {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          label {
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          input,
+          select,
+          textarea {
+            padding: 12px 15px;
+            border: 1px solid $border-color;
+            border-radius: 8px;
+            font-size: 14px;
+  font-family: "Poppins", sans-serif;
+            outline: none;
+            transition: 0.3s;
+            &:focus {
+              border-color: $primary-green;
+            }
+          }
+
+          textarea {
+            resize: none;
+          }
+
+          .phone-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            select {
+              width: 90px;
+              min-width: 90px;
+              @include small-mobile {
+                width: 80px;
+                min-width: 80px;
+                font-size: 13px;
+              }
+            }
+
+            input {
+              flex: 1;
+              min-width: 0;
+  font-family: "Poppins", sans-serif;
+              @include small-mobile {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        .button-group {
+  font-family: "Poppins", sans-serif;
+          display: flex;
+          gap: 15px;
+          margin-top: 10px;
+          @include mobile {
+            flex-direction: column;
+          }
+
+          button {
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            font-size: 16px;
+  font-family: "Poppins", sans-serif;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include mobile {
+              width: 100%;
+              padding: 14px;
+            }
+          }
+
+          .btn-send {
+            background-color: $primary-green;
+            color: white;
+            gap: 10px;
+            &:hover {
+              background-color: darken($primary-green, 5%);
+            }
+          }
+
+          .btn-clear {
+            background-color: #f1f1f1;
+            color: $primary-green;
+            &:hover {
+              background-color: #e5e5e5;
+            }
+          }
+        }
+      }
+    }
+
+    .social-footer {
+      margin-top: 40px;
+      border-top: 1px solid $border-color;
+      padding-top: 30px;
+
+      p {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .social-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include mobile {
+          grid-template-columns: 1fr;
+        }
+
+        .social-btn {
+          padding: 10px;
+          border-radius: 8px;
+          border: 1px solid $border-color;
+  font-family: "Poppins", sans-serif;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            background-color: $light-green;
+            border-color: $primary-green;
+            color: $primary-green;
+          }
+        }
+      }
+    }
+  }
+}

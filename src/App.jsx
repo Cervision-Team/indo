@@ -22,6 +22,7 @@ import ErrorDonation from "./Components/DonationComponents/ErrorDonation/ErrorDo
 import RulesPage from "./Pages/RulesPage";
 import AboutPage from "./Pages/AboutPage";
 import TeamPage from "./Pages/TeamPage";
+import ContactPage from "./Pages/ContactPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -68,7 +69,9 @@ const AppContent = () => {
         <Route path="/donation" element={<DonationPage />} />
         <Route path="/donation-success" element={<SuccessDonation />} />
         <Route path="/donation-error" element={<ErrorDonation />} />
+
         <Route path="/rules" element={<RulesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
 
         {/* <Route path="/team" element={<TeamPage />} /> */}
 
