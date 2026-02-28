@@ -67,13 +67,13 @@ const AppContent = () => {
         <Route path="/reset" element={<ResetPage />} />
 
         <Route path="/donation" element={<DonationPage />} />
-        <Route path="/donation-success" element={<SuccessDonation />} />
-        <Route path="/donation-error" element={<ErrorDonation />} />
+        <Route path="/payment/success" element={<SuccessDonation />} />
+        <Route path="/payment/error" element={<ErrorDonation />} />
 
         <Route path="/rules" element={<RulesPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
-        {/* <Route path="/team" element={<TeamPage />} /> */}
+        <Route path="/team" element={<TeamPage />} />
 
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />

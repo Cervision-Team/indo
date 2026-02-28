@@ -8,10 +8,10 @@ function TeamPage() {
   return (
     <>
         
-        {/* <TeamHeader/> */}
-        {/* <TeamLittle/> */}
-        {/* <KnowTeam/> */}
-        {/* <ConnectionUs/> */}
+        <TeamHeader/>
+        <TeamLittle/>
+        <KnowTeam/>
+        <ConnectionUs/>
 
     </>
   )
