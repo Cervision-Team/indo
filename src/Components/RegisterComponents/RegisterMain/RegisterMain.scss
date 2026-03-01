@@ -3,6 +3,7 @@ $secondary-green: #008767;
 $text-dark: #333333;
 $text-light: #666666;
 $border-color: #e0e0e0;
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .register-wrapper {
@@ -16,6 +17,7 @@ $border-color: #e0e0e0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   .register-container {
     display: flex;
     max-width: 1200px;
@@ -23,6 +25,7 @@ $border-color: #e0e0e0;
     align-items: start;
     gap: 60px;
     justify-content: center;
+
     .info-side {
       flex: 1;
       color: #ffffff;
@@ -30,6 +33,7 @@ $border-color: #e0e0e0;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
       .logo-box {
         display: flex;
         align-items: center;
@@ -53,6 +57,7 @@ $border-color: #e0e0e0;
         margin-bottom: 20px;
         font-weight: 500;
       }
+
       .description {
         font-size: 24px;
         opacity: 0.9;
@@ -82,6 +87,7 @@ $border-color: #e0e0e0;
     .form-side {
       flex: 1;
       display: flex;
+
       .auth-cardd {
         background: #ffffff;
         border-radius: 50px;
@@ -89,6 +95,7 @@ $border-color: #e0e0e0;
         max-width: 566px;
         text-align: center;
         padding: 40px 20px 0px;
+
         h3 {
           font-size: 34px;
           font-style: normal;
@@ -96,6 +103,7 @@ $border-color: #e0e0e0;
           line-height: normal;
           margin-bottom: 12px;
         }
+
         .subtitle {
           font-size: 16px;
           font-style: normal;
@@ -107,6 +115,7 @@ $border-color: #e0e0e0;
           text-align: left;
           font-family: "Poppins", sans-serif;
           padding: 40px;
+
           .form-group {
             margin-bottom: 20px;
 
@@ -126,8 +135,9 @@ $border-color: #e0e0e0;
               border-radius: 20px;
               padding: 0 15px;
               height: 48px;
-              transition: 0.3s;
+              transition: border-color 0.2s ease;
               margin-top: 6px;
+
               &:focus-within {
                 border-color: $primary-green;
               }
@@ -144,10 +154,12 @@ $border-color: #e0e0e0;
                 color: $text-light;
                 font-size: 14px;
               }
+
               .icon-left {
                 margin-right: 10px;
                 color: $text-light;
               }
+
               .icon-right {
                 margin-left: 10px;
                 color: $text-light;
@@ -181,6 +193,79 @@ $border-color: #e0e0e0;
             }
           }
 
+          // ── Şərtlər Checkbox ──────────────────────────────
+          .terms-checkbox {
+            margin-bottom: 16px;
+
+            .checkbox-label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+              position: relative;
+
+              // Native checkbox gizlət
+              input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+
+                &:checked + .custom-checkbox {
+                  background-color: $primary-green;
+                  border-color: $primary-green;
+
+                  &::after {
+                    display: block;
+                  }
+                }
+              }
+
+              // Custom checkbox qutusu
+              .custom-checkbox {
+                width: 18px;
+                height: 18px;
+                min-width: 18px;
+                border: 2px solid $primary-green;
+                border-radius: 4px;
+                background: #fff;
+                position: relative;
+                transition:
+                  background-color 0.2s ease,
+                  border-color 0.2s ease;
+
+                &::after {
+                  content: "";
+                  display: none;
+                  position: absolute;
+                  left: 4px;
+                  top: 1px;
+                  width: 5px;
+                  height: 9px;
+                  border: solid #fff;
+                  border-width: 0 2px 2px 0;
+                  transform: rotate(45deg);
+                }
+              }
+
+              .terms-text {
+                font-size: 14px;
+                color: $text-dark;
+
+                a {
+                  color: $primary-green;
+                  font-weight: 600;
+                  text-decoration: none;
+
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
+          }
+          // ─────────────────────────────────────────────────
+
           .submit-btn {
             width: 100%;
             height: 50px;
@@ -196,6 +281,7 @@ $border-color: #e0e0e0;
             font-style: normal;
             line-height: normal;
             letter-spacing: 0.2px;
+
             &:hover {
               background: $secondary-green;
             }
@@ -207,6 +293,7 @@ $border-color: #e0e0e0;
             position: relative;
             color: $text-light;
             font-size: 14px;
+
             &::before,
             &::after {
               content: "";
@@ -238,6 +325,7 @@ $border-color: #e0e0e0;
             cursor: pointer;
             font-weight: 500;
             font-size: 16px;
+
             .g-icon {
               color: #db4437;
             }
@@ -248,6 +336,7 @@ $border-color: #e0e0e0;
             margin-top: 25px;
             font-size: 12px;
             color: $text-light;
+
             a {
               color: $secondary-green;
               text-decoration: none;
@@ -258,6 +347,7 @@ $border-color: #e0e0e0;
       }
     }
   }
+
   .error-text {
     color: #ff4d4d;
     font-size: 11px;
@@ -268,15 +358,10 @@ $border-color: #e0e0e0;
   .error-border {
     border-color: #ff4d4d !important;
   }
-
-  // Mövcud input-field üçün transition əlavə edin ki, rəng dəyişimi yumşaq olsun
-  .input-field,
-  .phone-input-group {
-    transition: border-color 0.2s ease;
-  }
 }
 
-// MOBILE RESPONSIVE
+// ── RESPONSIVE ────────────────────────────────────────────
+
 @media (max-width: 992px) {
   .register-wrapper {
     padding: 40px 20px;
@@ -304,12 +389,10 @@ $border-color: #e0e0e0;
           font-size: 28px;
           margin-bottom: 16px;
         }
-
         .description {
           font-size: 20px;
           margin-bottom: 32px;
         }
-
         .benefits-list li {
           font-size: 18px;
           justify-content: center;
@@ -325,11 +408,9 @@ $border-color: #e0e0e0;
           max-width: 100%;
           padding: 30px 20px 0;
           border-radius: 30px;
-
           h3 {
             font-size: 28px;
           }
-
           form {
             padding: 30px 20px;
           }
@@ -342,7 +423,6 @@ $border-color: #e0e0e0;
 @media (max-width: 768px) {
   .register-wrapper {
     padding: 30px 15px;
-    min-height: 100vh;
 
     .register-container {
       .info-side {
@@ -356,15 +436,12 @@ $border-color: #e0e0e0;
             font-size: 24px;
           }
         }
-
         h2 {
           font-size: 24px;
         }
-
         .description {
           font-size: 18px;
         }
-
         .benefits-list li {
           font-size: 16px;
           gap: 6px;
@@ -379,7 +456,6 @@ $border-color: #e0e0e0;
         .auth-cardd {
           padding: 25px 15px 0;
           border-radius: 24px;
-
           h3 {
             font-size: 24px;
           }
@@ -391,17 +467,19 @@ $border-color: #e0e0e0;
               label {
                 font-size: 15px;
               }
-
               .input-field,
               .phone-input-group {
                 height: 44px;
                 padding: 0 12px;
                 border-radius: 16px;
-
                 input {
                   font-size: 14px;
                 }
               }
+            }
+
+            .terms-checkbox .checkbox-label .terms-text {
+              font-size: 13px;
             }
 
             .submit-btn,
@@ -430,16 +508,13 @@ $border-color: #e0e0e0;
             font-size: 20px;
           }
         }
-
         h2 {
           font-size: 20px;
         }
-
         .description {
           font-size: 16px;
           margin-bottom: 24px;
         }
-
         .benefits-list li {
           font-size: 14px;
           margin-bottom: 16px;
@@ -450,12 +525,10 @@ $border-color: #e0e0e0;
         .auth-cardd {
           padding: 20px 10px 0;
           border-radius: 20px;
-
           h3 {
             font-size: 22px;
             margin-bottom: 8px;
           }
-
           .subtitle {
             font-size: 14px;
           }
@@ -465,21 +538,22 @@ $border-color: #e0e0e0;
 
             .form-group {
               margin-bottom: 16px;
-
               label {
                 font-size: 14px;
               }
-
               .input-field,
               .phone-input-group {
                 height: 42px;
                 padding: 0 10px;
                 border-radius: 14px;
               }
-
               .hint {
                 font-size: 12px;
               }
+            }
+
+            .terms-checkbox .checkbox-label .terms-text {
+              font-size: 12px;
             }
 
             .submit-btn,
@@ -492,7 +566,6 @@ $border-color: #e0e0e0;
             .divider {
               font-size: 12px;
             }
-
             .footer-text {
               font-size: 11px;
               margin-top: 20px;
@@ -518,16 +591,13 @@ $border-color: #e0e0e0;
             font-size: 18px;
           }
         }
-
         h2 {
           font-size: 18px;
         }
-
         .description {
           font-size: 14px;
           margin-bottom: 20px;
         }
-
         .benefits-list li {
           font-size: 13px;
           img {
@@ -541,7 +611,6 @@ $border-color: #e0e0e0;
         .auth-cardd {
           padding: 15px 8px 0;
           border-radius: 16px;
-
           h3 {
             font-size: 20px;
           }
@@ -556,6 +625,10 @@ $border-color: #e0e0e0;
                 padding: 0 8px;
                 border-radius: 12px;
               }
+            }
+
+            .terms-checkbox .checkbox-label .terms-text {
+              font-size: 11px;
             }
 
             .submit-btn,

@@ -34,19 +34,9 @@
       color: #111;
       line-height: 1.3;
 
-      @media (max-width: 992px) {
-        font-size: 40px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 32px;
-        line-height: 1.25;
-      }
-
-      @media (max-width: 420px) {
-        font-size: 26px;
-        line-height: 1.25;
-      }
+      @media (max-width: 992px) { font-size: 40px; }
+      @media (max-width: 768px) { font-size: 32px; line-height: 1.25; }
+      @media (max-width: 420px) { font-size: 26px; line-height: 1.25; }
     }
   }
 
@@ -59,83 +49,146 @@
     }
   }
 
+  /* ── Menu Item ────────────────────────────────── */
   .menu-item {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    justify-content: space-between;
+    padding: 20px 16px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    margin-bottom: 8px;
 
     &:first-child {
       border-top: 1px solid #eee;
+      border: 1px solid transparent;
     }
 
-    &:hover,
+    // Active — sarı border, kart görünüşü
     &.active {
-      color: #000;
+      border: 1.5px solid #e8a317;
+      border-radius: 16px;
+      padding: 20px 16px;
+
+      .menu-item__number {
+        color: #e8a317;
+        font-weight: 600;
+      }
+
+      .menu-item__text {
+        color: #1a1a1a;
+        font-weight: 600;
+      }
 
       .menu-item__icon {
-        background-color: #f5f5f5;
-        transform: rotate(-45deg);
+        background-color: #006b52;
+        color: #fff;
+        transform: none;
       }
+    }
+
+    // Hover — active deyilsə yüngül effekt
+    &:not(.active):hover {
+      background-color: #fafafa;
+      border-color: #e0e0e0;
+
+      .menu-item__icon {
+        background-color: #f0f0f0;
+      }
+    }
+
+    // Sol tərəf: number + title + description
+    &__left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    &__top-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
     }
 
     &__number {
-      font-size: 24px;
-      color: #888;
-      margin-right: 20px;
+      font-size: 18px;
+      color: #aaa;
+      margin-right: 16px;
       font-weight: 500;
+      min-width: 32px;
+      transition: color 0.3s;
 
-      @media (max-width: 768px) {
-        font-size: 20px;
-        margin-right: 14px;
-      }
-
-      @media (max-width: 420px) {
-        font-size: 18px;
-        margin-right: 10px;
-      }
+      @media (max-width: 768px) { font-size: 16px; margin-right: 12px; }
+      @media (max-width: 420px) { font-size: 14px; margin-right: 8px; }
     }
 
     &__text {
-      flex: 1;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 500;
-      color: #333;
+      color: #444;
+      transition: color 0.3s, font-weight 0.3s;
+
+      @media (max-width: 768px) { font-size: 17px; }
+      @media (max-width: 420px) { font-size: 15px; }
+    }
+
+    // Active olduqda görünən description
+    &__description {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 48px; // number genişliyi qədər indent
+      animation: fadeIn 0.3s ease;
 
       @media (max-width: 768px) {
-        font-size: 18px;
+        font-size: 13px;
+        padding-left: 28px;
       }
 
       @media (max-width: 420px) {
-        font-size: 16px;
+        font-size: 12px;
+        padding-left: 22px;
       }
     }
 
     &__icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background-color: #f9f9f9;
-      font-size: 20px;
-      transition: 0.3s;
+      background-color: #f2f2f2;
+      font-size: 18px;
+      transition: background-color 0.3s, color 0.3s;
+      color: #555;
+      margin-left: 12px;
 
       @media (max-width: 768px) {
-        width: 42px;
-        height: 42px;
-        font-size: 18px;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 16px;
       }
 
       @media (max-width: 420px) {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 14px;
       }
     }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* --- BOTTOM --- */
@@ -143,6 +196,7 @@
     display: flex;
     align-items: center;
     gap: 60px;
+
     @media (max-width: 992px) {
       flex-direction: column;
       gap: 40px;
@@ -158,19 +212,9 @@
     min-height: 420px;
     overflow: visible;
 
-    @media (max-width: 992px) {
-      aspect-ratio: 16 / 10;
-      min-height: 320px;
-    }
-
-    @media (max-width: 768px) {
-      aspect-ratio: 1 / 1;
-      min-height: 320px;
-    }
-
-    @media (max-width: 420px) {
-      min-height: 280px;
-    }
+    @media (max-width: 992px) { aspect-ratio: 16 / 10; min-height: 320px; }
+    @media (max-width: 768px) { aspect-ratio: 1 / 1; min-height: 320px; }
+    @media (max-width: 420px) { min-height: 280px; }
 
     .image-box {
       position: absolute;
@@ -192,10 +236,7 @@
         left: 0;
         z-index: 1;
 
-        @media (max-width: 768px) {
-          width: 72%;
-          height: 78%;
-        }
+        @media (max-width: 768px) { width: 72%; height: 78%; }
       }
 
       &--small {
@@ -205,10 +246,7 @@
         right: 0;
         z-index: 2;
 
-        @media (max-width: 768px) {
-          width: 58%;
-          height: 58%;
-        }
+        @media (max-width: 768px) { width: 58%; height: 58%; }
       }
     }
   }
@@ -217,11 +255,8 @@
   &__content {
     flex: 1;
     padding-left: 20px;
-    font-family: "Poppins", sans-serif;
 
-    @media (max-width: 992px) {
-      padding-left: 0;
-    }
+    @media (max-width: 992px) { padding-left: 0; }
 
     .content-subtitle {
       display: block;
@@ -230,19 +265,9 @@
       color: #333;
       margin-bottom: 16px;
 
-      @media (max-width: 992px) {
-        font-size: 20px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-
-      @media (max-width: 420px) {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
+      @media (max-width: 992px) { font-size: 20px; }
+      @media (max-width: 768px) { font-size: 18px; margin-bottom: 10px; }
+      @media (max-width: 420px) { font-size: 16px; margin-bottom: 8px; }
     }
 
     .content-title {
@@ -252,19 +277,9 @@
       margin-bottom: 16px;
       text-transform: uppercase;
 
-      @media (max-width: 992px) {
-        font-size: 32px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 26px;
-        margin-bottom: 12px;
-      }
-
-      @media (max-width: 420px) {
-        font-size: 22px;
-        margin-bottom: 10px;
-      }
+      @media (max-width: 992px) { font-size: 32px; }
+      @media (max-width: 768px) { font-size: 26px; margin-bottom: 12px; }
+      @media (max-width: 420px) { font-size: 22px; margin-bottom: 10px; }
     }
 
     .content-text {
@@ -273,22 +288,9 @@
       line-height: 1.7;
       margin-bottom: 32px;
 
-      @media (max-width: 992px) {
-        font-size: 20px;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-
-      @media (max-width: 420px) {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 16px;
-      }
+      @media (max-width: 992px) { font-size: 20px; line-height: 1.6; }
+      @media (max-width: 768px) { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+      @media (max-width: 420px) { font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
     }
 
     .content-btn {
@@ -303,20 +305,10 @@
       transition: background 0.3s;
       font-family: "Poppins", sans-serif;
 
-      &:hover {
-        background-color: #005a4b;
-      }
+      &:hover { background-color: #005a4b; }
 
-      @media (max-width: 768px) {
-        width: fit-content;
-        padding: 12px 22px;
-        font-size: 15px;
-      }
-
-      @media (max-width: 420px) {
-        padding: 10px 20px;
-        font-size: 14px;
-      }
+      @media (max-width: 768px) { width: fit-content; padding: 12px 22px; font-size: 15px; }
+      @media (max-width: 420px) { padding: 10px 20px; font-size: 14px; }
     }
   }
 }

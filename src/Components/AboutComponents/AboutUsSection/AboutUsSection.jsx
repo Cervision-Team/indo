@@ -1,21 +1,34 @@
 import React, { useState } from "react";
-import "./AboutUsSection.scss"; // SCSS faylını unutmayaq
+import "./AboutUsSection.scss";
 import image1 from "../../../image/about-us-image-1.png";
 import image2 from "../../../image/about-us-image-2.png";
 
 function AboutUsSection() {
   const [activeTab, setActiveTab] = useState(1);
-
-  // Mətnin genişlənməsini idarə edən state
   const [isExpanded, setIsExpanded] = useState(false);
 
   const menuItems = [
-    { id: 1, title: "Haqqımızda", number: "01" },
-    { id: 2, title: "Bizim missiyamız", number: "02" },
-    { id: 3, title: "Bizim vizyonumuz", number: "03" },
+    {
+      id: 1,
+      title: "Haqqımızda",
+      number: "01",
+      description: null,
+    },
+    {
+      id: 2,
+      title: "Bizim missiyamız",
+      number: "02",
+      description:
+        "Ehtiyacı olan insanlara dəstək olmaq və həyatlarına ümid qatmaq üçün fəaliyyət göstərən xeyriyyə təşkilatıyıq.",
+    },
+    {
+      id: 3,
+      title: "Bizim vizyonumuz",
+      number: "03",
+      description: null,
+    },
   ];
 
-  // Qısa və Tam Mətnlər
   const shortText =
     "Biz bu yola sosial və maddi çətinlik yaşayan ailələrə dəstək olmaq üçün çıxdıq. Məqsədimiz — həssas ailələr üçün daha güvənli və dayanıqlı bir gələcək yaratmaqdır.";
 
@@ -37,12 +50,22 @@ function AboutUsSection() {
             {menuItems.map((item) => (
               <div
                 key={item.id}
-                className={`menu-item ${activeTab === item.id ? "" : ""}`}
+                className={`menu-item ${activeTab === item.id ? "active" : ""}`}
                 onClick={() => setActiveTab(item.id)}
               >
-                <span className="menu-item__number">{item.number}</span>
-                <span className="menu-item__text">{item.title}</span>
-                <span className="menu-item__icon">↘</span>
+                <div className="menu-item__left">
+                  <div className="menu-item__top-row">
+                    <span className="menu-item__number">{item.number}</span>
+                    <span className="menu-item__text">{item.title}</span>
+                  </div>
+                  {/* Active olduqda description göstər */}
+                  {activeTab === item.id && item.description && (
+                    <p className="menu-item__description">{item.description}</p>
+                  )}
+                </div>
+                <span className="menu-item__icon">
+                  {activeTab === item.id ? "↗" : "↘"}
+                </span>
               </div>
             ))}
           </div>
@@ -50,7 +73,6 @@ function AboutUsSection() {
 
         {/* Aşağı Hissə */}
         <div className="about-us-section__bottom">
-          {/* Sol tərəf: Şəkillər */}
           <div className="about-us-section__images">
             <div className="image-box image-box--large">
               <img src={image1} alt="Teamwork" />
@@ -60,17 +82,12 @@ function AboutUsSection() {
             </div>
           </div>
 
-          {/* Sağ tərəf: Mətn və Düymə */}
           <div className="about-us-section__content">
             <span className="content-subtitle">Haqqımızda</span>
             <h3 className="content-title">HEKAYƏMİZ</h3>
-
             <p className="content-text">
-              {/* isExpanded true olarsa tam mətni, false olarsa qısa mətni göstərir */}
               {isExpanded ? fullText : shortText}
             </p>
-
-            {/* Düymə yalnız isExpanded false olduqda görünür */}
             {!isExpanded && (
               <button
                 className="content-btn"

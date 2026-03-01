@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom"; // Yönləndirmə üçün
+import { useNavigate } from "react-router-dom";
 import "./RegisterMain.scss";
 import {
-  FaUser,
-  FaEnvelope,
-  FaPhone,
   FaLock,
   FaEyeSlash,
   FaEye,
@@ -22,7 +19,6 @@ const validationSchema = Yup.object({
   fullName: Yup.string().required("Ad və Soyad daxil edilməlidir"),
   email: Yup.string().email("Düzgün e-poçt ünvanı daxil edin"),
   phone: Yup.string()
-    // Həm boşluqlu, həm də boşluqsuz 9 rəqəmli formatı qəbul edir
     .matches(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/, "Nümunə: 557895456")
     .required("Telefon nömrəsi mütləqdir"),
   password: Yup.string()
@@ -30,11 +26,14 @@ const validationSchema = Yup.object({
     .matches(/[a-zA-Z]/, "Şifrədə hərflər olmalıdır")
     .matches(/[0-9]/, "Şifrədə rəqəmlər olmalıdır")
     .required("Şifrə tələb olunur"),
+  agreeToTerms: Yup.boolean()
+    .oneOf([true], "Şərtləri qəbul etməlisiniz")
+    .required("Şərtləri qəbul etməlisiniz"),
 });
 
 function RegisterMain() {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // Hook-u çağırırıq
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -42,11 +41,11 @@ function RegisterMain() {
       email: "",
       phone: "",
       password: "",
+      agreeToTerms: false,
     },
     validationSchema,
     onSubmit: (values) => {
       console.log("Qeydiyyat məlumatları:", values);
-      // OTP-yə yönləndiririk və haradan gəldiyimizi bildiririk (3 saniyə loading üçün)
       navigate("/otp", { state: { from: "auth" } });
     },
   });
@@ -84,10 +83,15 @@ function RegisterMain() {
             <p className="subtitle">Qeydiyyatdan keçin</p>
 
             <form onSubmit={formik.handleSubmit}>
+              {/* Ad və Soyad */}
               <div className="form-group">
                 <label>Ad və Soyad*</label>
                 <div
-                  className={`input-field ${formik.touched.fullName && formik.errors.fullName ? "error-border" : ""}`}
+                  className={`input-field ${
+                    formik.touched.fullName && formik.errors.fullName
+                      ? "error-border"
+                      : ""
+                  }`}
                 >
                   <input
                     name="fullName"
@@ -102,10 +106,15 @@ function RegisterMain() {
                 )}
               </div>
 
+              {/* E-poçt */}
               <div className="form-group">
                 <label>E-poçt</label>
                 <div
-                  className={`input-field ${formik.touched.email && formik.errors.email ? "error-border" : ""}`}
+                  className={`input-field ${
+                    formik.touched.email && formik.errors.email
+                      ? "error-border"
+                      : ""
+                  }`}
                 >
                   <input
                     name="email"
@@ -120,10 +129,15 @@ function RegisterMain() {
                 )}
               </div>
 
+              {/* Telefon */}
               <div className="form-group">
                 <label>Telefon nömrəniz*</label>
                 <div
-                  className={`phone-input-group ${formik.touched.phone && formik.errors.phone ? "error-border" : ""}`}
+                  className={`phone-input-group ${
+                    formik.touched.phone && formik.errors.phone
+                      ? "error-border"
+                      : ""
+                  }`}
                 >
                   <div className="country-select">
                     <span>+994</span>
@@ -132,7 +146,7 @@ function RegisterMain() {
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="557895456" // Boşluqsuz placeholder
+                    placeholder="557895456"
                     {...formik.getFieldProps("phone")}
                   />
                   <MdLocalPhone className="icon" />
@@ -142,10 +156,15 @@ function RegisterMain() {
                 )}
               </div>
 
+              {/* Şifrə */}
               <div className="form-group">
                 <label>Şifrə*</label>
                 <div
-                  className={`input-field ${formik.touched.password && formik.errors.password ? "error-border" : ""}`}
+                  className={`input-field ${
+                    formik.touched.password && formik.errors.password
+                      ? "error-border"
+                      : ""
+                  }`}
                 >
                   <FaLock className="icon-left" />
                   <input
@@ -174,6 +193,36 @@ function RegisterMain() {
                 )}
               </div>
 
+              {/* Şərtlər Checkbox */}
+              <div className="terms-checkbox">
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="agreeToTerms"
+                    checked={formik.values.agreeToTerms}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  <span className="custom-checkbox"></span>
+                  <span className="terms-text">
+                    <a
+                      href="https://investhome.az/terms-and-conditions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Şərtlər və qaydaları
+                    </a>{" "}
+                    oxudum, razıyam.
+                  </span>
+                </label>
+                {formik.touched.agreeToTerms && formik.errors.agreeToTerms && (
+                  <span className="error-text">
+                    {formik.errors.agreeToTerms}
+                  </span>
+                )}
+              </div>
+
+              {/* Submit */}
               <button
                 type="submit"
                 className="submit-btn"

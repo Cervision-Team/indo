@@ -27,7 +27,7 @@ function Navbar() {
     { to: "/about", label: "Haqqımızda" },
     { to: "/ianeler", label: "İanələr" },
     { to: "/team", label: "Komandamız" },
-    { to: "/bloq", label: "Bloq" },
+    { to: "/blog", label: "Bloq" },
     { to: "/contact", label: "Əlaqə" },
   ];
 

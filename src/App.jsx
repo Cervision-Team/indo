@@ -23,6 +23,7 @@ import RulesPage from "./Pages/RulesPage";
 import AboutPage from "./Pages/AboutPage";
 import TeamPage from "./Pages/TeamPage";
 import ContactPage from "./Pages/ContactPage";
+import BlogPage from "./Pages/BlogPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -74,6 +75,7 @@ const AppContent = () => {
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/team" element={<TeamPage />} />
+        {/* <Route path="/blog" element={<BlogPage />} /> */}
 
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
