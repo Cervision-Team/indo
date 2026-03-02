@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./RegisterMain.scss";
 import {
   FaLock,
@@ -205,13 +205,13 @@ function RegisterMain() {
                   />
                   <span className="custom-checkbox"></span>
                   <span className="terms-text">
-                    <a
-                      href="https://investhome.az/terms-and-conditions"
+                    <Link
+                      to={'/rules'}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Şərtlər və qaydaları
-                    </a>{" "}
+                    </Link>{" "}
                     oxudum, razıyam.
                   </span>
                 </label>
