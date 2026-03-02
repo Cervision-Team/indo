@@ -25,7 +25,7 @@ function Navbar() {
   const navLinks = [
     { to: "/", label: "Ana Səhifə", end: true },
     { to: "/about", label: "Haqqımızda" },
-    { to: "/ianeler", label: "İanələr" },
+    { to: "/donations", label: "İanələr" },
     { to: "/team", label: "Komandamız" },
     { to: "/blog", label: "Bloq" },
     { to: "/contact", label: "Əlaqə" },

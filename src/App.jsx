@@ -24,6 +24,8 @@ import AboutPage from "./Pages/AboutPage";
 import TeamPage from "./Pages/TeamPage";
 import ContactPage from "./Pages/ContactPage";
 import BlogPage from "./Pages/BlogPage";
+import DonationsPage from "./Pages/DonationsPage";
+import VolunteerPage from "./Pages/VolunteerPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -73,9 +75,13 @@ const AppContent = () => {
 
         <Route path="/rules" element={<RulesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        
+        {/* <Route path="/donations" element={<DonationsPage />} /> */}
 
         <Route path="/team" element={<TeamPage />} />
         {/* <Route path="/blog" element={<BlogPage />} /> */}
+        <Route path="/volunteer" element={<VolunteerPage />} />
+
 
         <Route path="/everybody" element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
