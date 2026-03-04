@@ -29,19 +29,18 @@ import VolunteerPage from "./Pages/VolunteerPage";
 
 const AppContent = () => {
   const location = useLocation();
-  const token = localStorage.getItem("app_token");
+  // const token = localStorage.getItem("app_token");
 
-  // Əgər token yoxdursa, hər şeyi EveryBody səhifəsinə yönləndir
-  if (!token) {
-    return (
-      <Routes>
-        <Route path="/everybody" element={<EveryBody />} />
-        <Route path="*" element={<Navigate to="/everybody" />} />
-      </Routes>
-    );
-  }
+  // // Əgər token yoxdursa, hər şeyi EveryBody səhifəsinə yönləndir
+  // if (!token) {
+  //   return (
+  //     <Routes>
+  //       <Route path="/everybody" element={<EveryBody />} />
+  //       <Route path="*" element={<Navigate to="/everybody" />} />
+  //     </Routes>
+  //   );
+  // }
 
-  // Token varsa, normal marşrutlaşdırma işləyir
   const noLayoutPages = [
     "/register",
     "/login",
@@ -75,15 +74,14 @@ const AppContent = () => {
 
         <Route path="/rules" element={<RulesPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        
+
         {/* <Route path="/donations" element={<DonationsPage />} /> */}
 
         <Route path="/team" element={<TeamPage />} />
         {/* <Route path="/blog" element={<BlogPage />} /> */}
         <Route path="/volunteer" element={<VolunteerPage />} />
 
-
-        <Route path="/everybody" element={<Navigate to="/" />} />
+        <Route path="/everybody" element={<EveryBody />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       {!hideLayout && <Footer />}
