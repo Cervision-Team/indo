@@ -26,10 +26,22 @@ import ContactPage from "./Pages/ContactPage";
 import BlogPage from "./Pages/BlogPage";
 import DonationsPage from "./Pages/DonationsPage";
 import VolunteerPage from "./Pages/VolunteerPage";
+import LoginPassPage from "./Pages/LoginPassPage";
 
 const AppContent = () => {
   const location = useLocation();
   // const token = localStorage.getItem("app_token");
+
+  const sessionLogin = localStorage.getItem("session-login") === "true";
+
+  if (!sessionLogin) {
+    return (
+      <Routes>
+        <Route path="/login-pass" element={<LoginPassPage />} />
+        <Route path="*" element={<Navigate to="/login-pass" replace />} />
+      </Routes>
+    );
+  }
 
   // // Əgər token yoxdursa, hər şeyi EveryBody səhifəsinə yönləndir
   // if (!token) {
@@ -44,6 +56,7 @@ const AppContent = () => {
   const noLayoutPages = [
     "/register",
     "/login",
+    "/login-pass",
     "/otp",
     "/everybody",
     "/forgot",
@@ -59,6 +72,8 @@ const AppContent = () => {
       {!hideLayout && <NotMean />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        <Route path="/login-pass" element={<Navigate to="/" replace />} />
 
         <Route path="/about" element={<AboutPage />} />
 
