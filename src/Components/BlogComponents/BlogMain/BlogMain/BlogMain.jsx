@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./BlogMain.scss";
 
-import blogImg1 from "../../../../image/about-album-1.png";
-import blogImg2 from "../../../../image/about-album-2.png";
-import blogImg3 from "../../../../image/about-album-3.png";
+import blogImg1 from "../../../../image/about-album-1.JPG";
+import blogImg2 from "../../../../image/about-album-2.jpg";
+import blogImg3 from "../../../../image/about-album-3.jpg";
 
 const allPosts = Array.from({ length: 18 }, (_, i) => ({
   id: i + 1,

@@ -54,7 +54,7 @@ const projects = [
 ];
 
 // Placeholder image (replace with actual images)
-import donationImg from "../../../image/about-album-1.png";
+import donationImg from "../../../image/about-album-1.JPG";
 import donaitionsBackImage from "../../../image/donations-image.png";
 
 function DonationCard({ title, description }) {

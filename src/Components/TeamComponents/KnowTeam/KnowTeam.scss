@@ -7,6 +7,7 @@
   padding: 40px 20px 60px;
   font-family: "Poppins", sans-serif;
 
+  // ─── HEADER ───────────────────────────────────────────────
   &__header {
     text-align: center;
     margin-bottom: 32px;
@@ -27,11 +28,12 @@
     line-height: normal;
   }
 
+  // ─── FILTERS ──────────────────────────────────────────────
   &__filters {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px 0;
+    justify-content: center;
+    gap: 12px;
   }
 
   &__filter-btn {
@@ -39,11 +41,12 @@
     border: 2px solid #e17153;
     background-color: #fff;
     cursor: pointer;
+    font-family: "Poppins", sans-serif;
 
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    gap: 6px;
 
     height: 58px;
     padding: 0 24px;
@@ -53,38 +56,51 @@
     line-height: normal;
     color: #e17153;
 
+    transition: background-color 0.22s ease,
+      color 0.22s ease,
+      border-color 0.22s ease,
+      transform 0.15s ease;
+
     span {
       font-weight: 500;
+      color: inherit;
     }
-
-    transition: all 0.2s ease;
 
     &:hover {
       background-color: #e17153;
       color: #fff;
       border-color: #e17153;
+      transform: translateY(-1px);
+    }
 
-      span {
-        color: #fff;
-      }
+    &:active {
+      transform: translateY(0px);
     }
 
     &--active {
       background-color: #e17153;
       color: #fff;
       border-color: #e17153;
-
-      span {
-        color: #fff;
-      }
     }
   }
 
+  // ─── GRID ─────────────────────────────────────────────────
   &__grid {
-    margin-top: 24px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
+
+    // Kartlar görünəndə fade-in animasiyası
+    .know-team__card {
+      animation: cardFadeIn 0.35s ease both;
+    }
+
+    @for $i from 1 through 8 {
+      .know-team__card:nth-child(#{$i}) {
+        animation-delay: #{($i - 1) * 0.06}s;
+      }
+    }
 
     @media (max-width: 1024px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -99,14 +115,23 @@
     }
   }
 
+  // ─── CARD ─────────────────────────────────────────────────
   &__card {
     background-color: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     display: flex;
     flex-direction: column;
     height: 484px;
+    transition: transform 0.22s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .know-team__image-wrapper img {
+        transform: scale(1.04);
+      }
+    }
   }
 
   &__image-wrapper {
@@ -119,18 +144,24 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.4s ease;
     }
   }
 
   &__info {
     padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
   }
 
   &__name {
     font-size: 20px;
     font-weight: 400;
     color: #1b1b1f;
-    margin-bottom: 6.5px;
+    margin: 0;
+    line-height: 1.3;
   }
 
   &__department {
@@ -140,7 +171,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-    margin-bottom: 6.5px;
+    margin: 0;
   }
 
   &__desc {
@@ -148,11 +179,24 @@
     font-weight: 400;
     line-height: 22.75px;
     letter-spacing: -0.15px;
+    color: #7a7a8b;
+    margin: 0;
   }
 
-  /* ---------- RESPONSIVE ---------- */
+  // ─── FADE-IN ANİMASİYASI ──────────────────────────────────
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
 
-  /* Tablet: font ölçüləri və filter sırasını sıxlaşdırırıq */
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ─── RESPONSIVE ───────────────────────────────────────────
   @media (max-width: 992px) {
     padding: 32px 16px 40px;
 
@@ -165,11 +209,6 @@
       margin-bottom: 40px;
     }
 
-    &__filters {
-      justify-content: center;
-      gap: 16px;
-    }
-
     &__filter-btn {
       font-size: 16px;
       height: 48px;
@@ -177,7 +216,6 @@
     }
   }
 
-  /* Mobil: başlıqlar daha kiçik, filter-lər tam sətir və mərkəzdə */
   @media (max-width: 600px) {
     padding: 24px 12px 32px;
 
@@ -191,16 +229,18 @@
     }
 
     &__filters {
-      flex-direction: row;
-      justify-content: center;
       gap: 10px;
     }
 
     &__filter-btn {
-      width: auto;
       font-size: 14px;
       height: 42px;
       padding: 0 14px;
+    }
+
+    &__card {
+      height: auto;
+      min-height: 420px;
     }
   }
 }

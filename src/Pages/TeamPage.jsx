@@ -4,7 +4,7 @@ import TeamLittle from '../Components/TeamComponents/TeamLittle/TeamLittle'
 import ConnectionUs from '../Components/TeamComponents/ConnectionUs/ConnectionUs'
 import KnowTeam from '../Components/TeamComponents/KnowTeam/KnowTeam'
 
-function TeamPage() {
+function  TeamPage() {
   return (
     <>
         

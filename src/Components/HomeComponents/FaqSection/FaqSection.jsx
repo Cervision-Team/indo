@@ -35,8 +35,7 @@ function FaqSection() {
           <div className="faq-content">
             <h1>İanələrinizlə bağlı suallarınıza cavab tapın</h1>
             <p>
-              Et felis vitae ac venenatis lacus cras etiam risus scelerisque
-              auctor adipiscing in a porta.
+             Sizin kiçik dəstəyiniz kiminsə həyatında böyük dəyişiklik yarada bilər. İanə edərək yaxşılığa töhfə verin.
             </p>
           </div>
 

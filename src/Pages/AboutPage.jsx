@@ -12,7 +12,7 @@ function AboutPage() {
         <AboutUsSection/>
         <AboutTextSection/>
         <AboutAlbum/>
-        <AboutTeam/>
+        {/* <AboutTeam/> */}
     </>
   )
 }

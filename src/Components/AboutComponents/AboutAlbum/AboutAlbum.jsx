@@ -2,13 +2,13 @@ import React from 'react';
 import './AboutAlbum.scss'; // SCSS faylını import etməyi unutmayın
 
 // Şəkillərin importu (Sizin verdiyiniz kimi)
-import img1 from "../../../image/about-album-1.png";
-import img2 from "../../../image/about-album-2.png";
-import img3 from "../../../image/about-album-3.png";
-import img4 from "../../../image/about-album-4.png";
-import img5 from "../../../image/about-album-5.png";
-import img6 from "../../../image/about-album-6.png";
-import img7 from "../../../image/about-album-7.png";
+import img1 from "../../../image/about-album-1.JPG";
+import img2 from "../../../image/about-album-2.jpg";
+import img3 from "../../../image/about-album-3.jpg";
+import img4 from "../../../image/about-album-4.JPG";
+import img5 from "../../../image/about-album-5.jpg";
+import img6 from "../../../image/about-album-6.jpg";
+import img7 from "../../../image/about-album-7.jpg";
 
 // İkonların importu
 import icon1 from "../../../image/about-album-icon-1.png";
@@ -49,7 +49,7 @@ function AboutAlbum() {
           </div>
         </div>
 
-        <div className="about-album__partners">
+        {/* <div className="about-album__partners">
           {partners.map((partner, index) => (
             <div key={index} className="partner-card">
               <div className="partner-icon">
@@ -58,7 +58,7 @@ function AboutAlbum() {
               <span className="partner-name">{partner.name}</span>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

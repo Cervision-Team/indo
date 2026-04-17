@@ -3,7 +3,7 @@ import { FaRegAddressCard, FaHeart, FaShieldAlt } from "react-icons/fa";
 import "./DonationMain.scss";
 import icon1 from "../../../image/icon1.png";
 import icon2 from "../../../image/icon2.png";
-import donationImage from "../../../image/donation-image.png";
+import donationImage from "../../../image/donation-image.jpg";
 
 function DonationMain() {
   const [isMonthly, setIsMonthly] = useState(false);
